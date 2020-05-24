@@ -15,13 +15,12 @@ from queue import Queue
 # ---------------------------------------------------------------------------------------------------------------------- #
 class Node:
     """
-    Custom made data structure using class to store the node info.
+    Custom made data structure for storing Node info using class Node.
     """
 
     def __init__(self, unique_number: int, state: np.array, index: int = None, parent: int = None,
                  hist: int = None) -> None:
         """
-
         Args:
             state: np.array
                 Current State of the node
@@ -40,9 +39,36 @@ class Node:
 
 
 class TilePuzzleSolver:
+    """
+    A 8 tile puzzle solver class with adequate methods
+
+    Attributes:
+        -> init_state               :-> Initial State of the given puzzle
+        -> init_id                  :-> Unique number based on puzzle's Initial state
+        -> goal_state               :-> Goal State of the given puzzle
+        -> goal_id                  :-> Unique number based on puzzle's Goal state
+        -> neighbours               :-> neighbor location map for each tile location in puzzle
+        -> que                      :-> A deque object to implement FIFO logic for Breadth first search Algorithm
+        -> nodes                    :-> A dictionary with node object as value and node's id as key
+        -> current_node             :-> generate a node object based on initial state of puzzle
+        -> exit_flag                :-> True if goal is found, False by default
+
+
+    static methods:
+        -> isSolvable               :-> Checks the solution feasibility of the puzzle
+        -> generateUniqueNumber     :-> generates a unique number based on the puzzle's current state
+
+    methods:
+        -> __init__()               :-> Initializes the attributes
+        -> findNeighbors            :-> finds the possible moves based on puzzle's current state
+        -> findChildStates          :-> finds the new states based on the moves possible
+        -> backTrack                :-> based on the node id back tracks back to the start node and returns the solution
+        -> bruteForceExplorationBFS :-> A function to implement brute force search using breadth first search algorithm
+
+    """
+
     def __init__(self, init_state: np.array, goal_state: np.array) -> None:
         """
-
         Args:
             args.init_state: np.array
                 Its a 1D numpy array
@@ -123,8 +149,7 @@ class TilePuzzleSolver:
         return init_flip_count % 2 == 0 and goal_flip_count % 2 == 0
 
     @staticmethod
-    def generateUniqueNumber(node: np.array, unique_seq: np.array = np.array(
-        [100000000, 10000000, 1000000, 100000, 10000, 1000, 100, 10, 1])) -> int:
+    def generateUniqueNumber(node: np.array, unique_seq: np.array = np.array([100000000, 10000000, 1000000, 100000, 10000, 1000, 100, 10, 1])) -> int:
         """
         Args:
             unique_seq: np.array
@@ -138,15 +163,6 @@ class TilePuzzleSolver:
         """
         return node @ unique_seq
 
-    def findNeighbors(self, node: Node) -> None:
-        """
-        A Function to get the possible neighbor index based on blank tile location
-        Returns: None
-
-        """
-        neighbors = self.neighbours[node.blank_tile_index].difference(node.hist_blank_tile_index)
-        self.findChildStates(neighbors, node)
-
     def bruteForceExplorationBFS(self) -> None:
         """
         This Function explores the possible states of the Tile Puzzle using breadth first search Algorithm
@@ -155,11 +171,20 @@ class TilePuzzleSolver:
         """
         while not self.que.empty() and not self.exit_flag:
             self.current_node = self.que.get()
-            self.findNeighbors(self.current_node)
+            move = self.findNeighbors(self.current_node)
+            self.findChildStates(move, self.current_node)
 
         if self.exit_flag:
-            print("Goal Found")
-        print(self.nodes.__len__())
+            print("\nGoal Found!")
+            print("\nNodes Explored: ", self.nodes.__len__())
+
+    def findNeighbors(self, node: Node) -> set:
+        """
+        A Function to get the possible neighbor index based on blank tile location
+        Returns: None
+
+        """
+        return self.neighbours[node.blank_tile_index].difference(node.hist_blank_tile_index)
 
     def findChildStates(self, moves: set, node: Node) -> None:
         """
@@ -207,3 +232,6 @@ class TilePuzzleSolver:
             path.append(current_node.current_state)
             current_id = current_node.id
         return path[::-1]
+
+
+
