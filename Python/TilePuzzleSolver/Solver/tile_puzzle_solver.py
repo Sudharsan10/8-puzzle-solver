@@ -186,3 +186,24 @@ class TilePuzzleSolver:
                 if unique_id == self.goal_id:
                     self.exit_flag = True
                 self.que.put(child_node)
+
+    def backTrack(self, uniq_id: int) -> list:
+        """
+
+        Args:
+            uniq_id: int
+                Unique id of a node to start the back tracking
+
+        Returns: list
+            Returns a list containing the solution to the puzzle
+
+        """
+        current_node = self.nodes[uniq_id]
+        current_id = current_node.id
+        path = [current_node.current_state]
+
+        while current_id != current_node.parent_id:
+            current_node = self.nodes[current_node.parent_id]
+            path.append(current_node.current_state)
+            current_id = current_node.id
+        return path[::-1]
