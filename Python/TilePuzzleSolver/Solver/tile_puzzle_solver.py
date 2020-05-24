@@ -123,7 +123,8 @@ class TilePuzzleSolver:
         return init_flip_count % 2 == 0 and goal_flip_count % 2 == 0
 
     @staticmethod
-    def generateUniqueNumber(node: np.array, unique_seq: np.array = np.array([100000000, 10000000, 1000000, 100000, 10000, 1000, 100, 10, 1])) -> int:
+    def generateUniqueNumber(node: np.array, unique_seq: np.array = np.array(
+        [100000000, 10000000, 1000000, 100000, 10000, 1000, 100, 10, 1])) -> int:
         """
         Args:
             unique_seq: np.array
@@ -144,7 +145,7 @@ class TilePuzzleSolver:
 
         """
         neighbors = self.neighbours[node.blank_tile_index].difference(node.hist_blank_tile_index)
-        self.makeMove(neighbors, node)
+        self.findChildStates(neighbors, node)
 
     def bruteForceExplorationBFS(self) -> None:
         """
@@ -159,3 +160,29 @@ class TilePuzzleSolver:
         if self.exit_flag:
             print("Goal Found")
         print(self.nodes.__len__())
+
+    def findChildStates(self, moves: set, node: Node) -> None:
+        """
+        Based on the moves available for current state, it generates new possible states.
+        Args:
+            node: Node
+                its the current node object
+            moves: set
+                set of possible moves
+
+        Returns:
+
+        """
+        parent_state = np.copy(node.current_state)
+        parent_id = node.id
+        index = node.blank_tile_index
+        for move in moves:
+            new_state = np.copy(parent_state)
+            new_state[move], new_state[index] = parent_state[index], parent_state[move]
+            unique_id = self.generateUniqueNumber(new_state)
+            if unique_id not in self.nodes:
+                child_node = Node(unique_id, new_state, move, parent_id, index)
+                self.nodes[unique_id] = child_node
+                if unique_id == self.goal_id:
+                    self.exit_flag = True
+                self.que.put(child_node)
