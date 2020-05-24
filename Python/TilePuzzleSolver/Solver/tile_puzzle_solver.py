@@ -145,3 +145,17 @@ class TilePuzzleSolver:
         """
         neighbors = self.neighbours[node.blank_tile_index].difference(node.hist_blank_tile_index)
         self.makeMove(neighbors, node)
+
+    def bruteForceExplorationBFS(self) -> None:
+        """
+        This Function explores the possible states of the Tile Puzzle using breadth first search Algorithm
+        Returns: None
+
+        """
+        while not self.que.empty() and not self.exit_flag:
+            self.current_node = self.que.get()
+            self.findNeighbors(self.current_node)
+
+        if self.exit_flag:
+            print("Goal Found")
+        print(self.nodes.__len__())
