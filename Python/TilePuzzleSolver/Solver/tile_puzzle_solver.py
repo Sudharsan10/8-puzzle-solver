@@ -136,3 +136,12 @@ class TilePuzzleSolver:
 
         """
         return node @ unique_seq
+
+    def findNeighbors(self, node: Node) -> None:
+        """
+        A Function to get the possible neighbor index based on blank tile location
+        Returns: None
+
+        """
+        neighbors = self.neighbours[node.blank_tile_index].difference(node.hist_blank_tile_index)
+        self.makeMove(neighbors, node)
