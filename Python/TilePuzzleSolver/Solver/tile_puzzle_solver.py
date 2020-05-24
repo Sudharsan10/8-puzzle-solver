@@ -52,6 +52,7 @@ class TilePuzzleSolver:
         -> nodes                    :-> A dictionary with node object as value and node's id as key
         -> current_node             :-> generate a node object based on initial state of puzzle
         -> exit_flag                :-> True if goal is found, False by default
+        -> solvable                 :-> True if the puzzle is solvable, else False
 
 
     static methods:
@@ -64,6 +65,8 @@ class TilePuzzleSolver:
         -> findChildStates          :-> finds the new states based on the moves possible
         -> backTrack                :-> based on the node id back tracks back to the start node and returns the solution
         -> bruteForceExplorationBFS :-> A function to implement brute force search using breadth first search algorithm
+        -> autoSolve                :-> Calls all the necessary function upon obj creation and solves and returns the
+                                        solution
 
     """
 
@@ -91,6 +94,7 @@ class TilePuzzleSolver:
         self.nodes = dict()
         self.que = Queue()
         self.exit_flag = False
+        self.solvable = self.isSolvable(self.init_state.tolist(), self.goal_state.tolist())
         self.init_id = self.generateUniqueNumber(init_state)
         self.goal_id = self.generateUniqueNumber(goal_state)
 
@@ -232,6 +236,18 @@ class TilePuzzleSolver:
             path.append(current_node.current_state)
             current_id = current_node.id
         return path[::-1]
+
+    def autoSolve(self) -> list:
+        """
+        In one function checks for solution feasibility, runs the bruteForceExplorationBFS() and backTrack() and returns the solution
+        Returns: list
+            Solution to the given puzzle
+        """
+        if self.solvable:
+            self.bruteForceExplorationBFS()
+            return self.backTrack(self.goal_id)
+        else:
+            return ["Not Solvable!"]
 
 
 
