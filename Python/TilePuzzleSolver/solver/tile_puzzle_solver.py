@@ -132,15 +132,19 @@ class TilePuzzleSolver:
         # ---> Step 01: Copy the arg <--- #
         init, goal = initial_state.copy(), goal_state.copy()
 
+        # initialize Miscellaneous variable
+        n = len(init)
+
+        for i in range(0, n):
+            if i not in init or i not in goal:
+                return False
+
         # ---> Step 02: Remove zero from the args <--- #
         init.remove(0)
         goal.remove(0)
 
         # ---> Step 03: Initialize flip counter <---#
         init_flip_count, goal_flip_count = 0, 0
-
-        # initialize Miscellaneous variable
-        n = len(init)
 
         for i in range(0, n):
             temp_i = init[i:]
@@ -215,7 +219,7 @@ class TilePuzzleSolver:
                     self.exit_flag = True
                 self.que.put(child_node)
 
-    def backTrack(self, uniq_id: int) -> list:
+    def backTrack(self, uniq_id: int = None) -> list:
         """
 
         Args:
@@ -226,6 +230,8 @@ class TilePuzzleSolver:
             Returns a list containing the solution to the puzzle
 
         """
+        if uniq_id is None:
+            uniq_id = self.goal_id
         current_node = self.nodes[uniq_id]
         current_id = current_node.id
         path = [current_node.current_state]

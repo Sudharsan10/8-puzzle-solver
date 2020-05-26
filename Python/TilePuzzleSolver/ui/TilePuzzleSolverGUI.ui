@@ -1208,78 +1208,6 @@ p, li { white-space: pre-wrap; }
           <property name="spacing">
            <number>20</number>
           </property>
-          <item row="0" column="0" colspan="2">
-           <widget class="QLabel" name="options">
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>20</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>16777215</width>
-              <height>20</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <family>Arial Rounded MT Bold</family>
-              <pointsize>10</pointsize>
-             </font>
-            </property>
-            <property name="text">
-             <string>Options</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="1">
-           <widget class="QPushButton" name="isSolvableButton">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="minimumSize">
-             <size>
-              <width>100</width>
-              <height>50</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>200</width>
-              <height>100</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <family>Arial Rounded MT Bold</family>
-              <pointsize>10</pointsize>
-             </font>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">background-color:#00aaff;
-color:#ffffff;
-
-border-style: outset;
-border-width: 1px;
-border-radius: 15px;
-border-color: black;
-padding: 4px;</string>
-            </property>
-            <property name="text">
-             <string>Is Solvable?</string>
-            </property>
-            <property name="shortcut">
-             <string notr="true"/>
-            </property>
-           </widget>
-          </item>
           <item row="2" column="1">
            <widget class="QPushButton" name="appResetButton">
             <property name="sizePolicy">
@@ -1308,13 +1236,7 @@ padding: 4px;</string>
             </property>
             <property name="styleSheet">
              <string notr="true">background-color:#00aaff;
-color:#ffffff;
-
-border-style: outset;
-border-width: 1px;
-border-radius: 15px;
-border-color: black;
-padding: 4px;</string>
+color:#ffffff;</string>
             </property>
             <property name="text">
              <string>Reset</string>
@@ -1361,19 +1283,51 @@ padding: 4px;</string>
             </property>
             <property name="styleSheet">
              <string notr="true">background-color:#00aaff;
-color:#ffffff;
-
-border-style: outset;
-border-width: 1px;
-border-radius: 15px;
-border-color: black;
-padding: 4px;</string>
+color:#ffffff;</string>
             </property>
             <property name="text">
              <string>Find Solution</string>
             </property>
             <property name="autoDefault">
              <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QPushButton" name="isSolvableButton">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>100</width>
+              <height>50</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>200</width>
+              <height>100</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>Arial Rounded MT Bold</family>
+              <pointsize>10</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color:#00aaff;
+color:#ffffff;</string>
+            </property>
+            <property name="text">
+             <string>Is Solvable?</string>
+            </property>
+            <property name="shortcut">
+             <string notr="true"/>
             </property>
            </widget>
           </item>
@@ -1407,13 +1361,7 @@ padding: 4px;</string>
             </property>
             <property name="styleSheet">
              <string notr="true">background-color:#00aaff;
-color:#ffffff;
-
-border-style: outset;
-border-width: 1px;
-border-radius: 15px;
-border-color: black;
-padding: 4px;</string>
+color:#ffffff;</string>
             </property>
             <property name="text">
              <string>Simulation</string>
@@ -1426,6 +1374,34 @@ padding: 4px;</string>
             </property>
             <property name="autoDefault">
              <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0" colspan="2">
+           <widget class="QLabel" name="options">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>Arial Rounded MT Bold</family>
+              <pointsize>10</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>Options</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
             </property>
            </widget>
           </item>
