@@ -13,15 +13,13 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtGui import QIntValidator, QCursor
 
 from Python.TilePuzzleSolver.data.ui_data import *
-from Python.TilePuzzleSolver.controller.gui_controller import GUIController
-import numpy as np
 
 
 # ---------------------------------------------------------------------------------------------------------------------- #
 # Class for the GUI
 # ---------------------------------------------------------------------------------------------------------------------- #
 class Ui_MainWindow(object):
-    def __init__(self, controller: GUIController, main_window: QtWidgets):
+    def __init__(self, controller: object, main_window: QtWidgets):
         """
         Initialize the controller, UI objects and UI widget attributes
         Args:

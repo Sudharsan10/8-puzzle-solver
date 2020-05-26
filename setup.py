@@ -4,15 +4,16 @@
 # E-mail    :-> sudharsansci@gmail.com
 
 # ---------------------------------------------------------------------------------------------------------------------- #
-# Import Section for Importing library
+# Import packages
 # ---------------------------------------------------------------------------------------------------------------------- #
-import numpy as np
+
+from Python.TilePuzzleSolver.controller.gui_controller import *
 
 
-# ---------------------------------------------------------------------------------------------------------------------- #
-# Class for the data controller
-# ---------------------------------------------------------------------------------------------------------------------- #
-class DataController:
-    def __init__(self):
-        # initialize all the data variables
-        pass
+def startApp():
+    app = GUIController()
+    app.startGUI()
+
+
+if __name__ == '__main__':
+    startApp()
