@@ -1,17 +1,17 @@
 # ---------------------------------------------------------------------------------------------------------------------- #
-# Project   :-> 8 Tile Puzzle Solver
+# Project   :-> 8 Tile Puzzle solver
 # Authors   :-> Sudharsan
 # E-mail    :-> sudharsansci@gmail.com
 
 # ---------------------------------------------------------------------------------------------------------------------- #
 # Import Section for Importing library
 # ---------------------------------------------------------------------------------------------------------------------- #
-import os, sys, random, math, argparse, time, numpy as np
+import numpy as np
 from queue import Queue
 
 
 # ---------------------------------------------------------------------------------------------------------------------- #
-# Class for the Solver Algorithm
+# Class for the solver Algorithm
 # ---------------------------------------------------------------------------------------------------------------------- #
 class Node:
     """
@@ -167,10 +167,11 @@ class TilePuzzleSolver:
         """
         return node @ unique_seq
 
-    def bruteForceExplorationBFS(self) -> None:
+    def bruteForceExplorationBFS(self) -> bool:
         """
         This Function explores the possible states of the Tile Puzzle using breadth first search Algorithm
-        Returns: None
+        Returns: bool
+            Returns True if goal is found or else False.
 
         """
         while not self.que.empty() and not self.exit_flag:
@@ -178,9 +179,7 @@ class TilePuzzleSolver:
             move = self.findNeighbors(self.current_node)
             self.findChildStates(move, self.current_node)
 
-        if self.exit_flag:
-            print("\nGoal Found!")
-            print("\nNodes Explored: ", self.nodes.__len__())
+        return self.exit_flag
 
     def findNeighbors(self, node: Node) -> set:
         """

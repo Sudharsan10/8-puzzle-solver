@@ -1,5 +1,5 @@
 # ---------------------------------------------------------------------------------------------------------------------- #
-# Project   :-> 8 Tile Puzzle Solver
+# Project   :-> 8 Tile Puzzle solver
 # Authors   :-> Sudharsan
 # E-mail    :-> sudharsansci@gmail.com
 
@@ -8,14 +8,12 @@
 # Import Section for Importing library
 # ---------------------------------------------------------------------------------------------------------------------- #
 import unittest
-import argparse
 import numpy as np
-
-import Python.TilePuzzleSolver.Solver.tile_puzzle_solver as tp
+import Python.TilePuzzleSolver.solver.tile_puzzle_solver as tp
 
 
 # ---------------------------------------------------------------------------------------------------------------------- #
-# Class for the Solver Algorithm
+# Class for the solver Algorithm
 # ---------------------------------------------------------------------------------------------------------------------- #
 class TestTilePuzzleSolver(unittest.TestCase):
     def setUp(self) -> None:
@@ -32,12 +30,14 @@ class TestTilePuzzleSolver(unittest.TestCase):
                          'TilePuzzleSolver.generateUniqueNumber() is broken')
 
     def test_autoSolve(self):
+        # --->Test for Success <--- #
         initial_state = np.array([1, 2, 3, 4, 5, 6, 7, 8, 0])
         final_state = np.array([1, 0, 2, 8, 5, 3, 4, 7, 6])
         obj1 = tp.TilePuzzleSolver(initial_state, final_state)
         sol1 = obj1.autoSolve()
         self.assertEqual(type(sol1[0]), type(initial_state), "TilePuzzleSolver.autoSolve() function is broken")
 
+        # ---> Test Fail <--- #
         final_state = np.array([1, 2, 3, 5, 4, 6, 7, 8, 0])
         obj2 = tp.TilePuzzleSolver(initial_state, final_state)
         sol2 = obj2.autoSolve()
@@ -45,7 +45,5 @@ class TestTilePuzzleSolver(unittest.TestCase):
 
 
 # ---------------------------------------------------------------------------------------------------------------------- #
-
-
 if __name__ == '__main__':
     unittest.main()
