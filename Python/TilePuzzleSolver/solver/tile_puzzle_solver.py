@@ -1,17 +1,17 @@
 # ---------------------------------------------------------------------------------------------------------------------- #
-# Project   :-> 8 Tile Puzzle Solver
+# Project   :-> 8 Tile Puzzle solver
 # Authors   :-> Sudharsan
 # E-mail    :-> sudharsansci@gmail.com
 
 # ---------------------------------------------------------------------------------------------------------------------- #
 # Import Section for Importing library
 # ---------------------------------------------------------------------------------------------------------------------- #
-import os, sys, random, math, argparse, time, numpy as np
+import numpy as np
 from queue import Queue
 
 
 # ---------------------------------------------------------------------------------------------------------------------- #
-# Class for the Solver Algorithm
+# Class for the solver Algorithm
 # ---------------------------------------------------------------------------------------------------------------------- #
 class Node:
     """
@@ -132,15 +132,19 @@ class TilePuzzleSolver:
         # ---> Step 01: Copy the arg <--- #
         init, goal = initial_state.copy(), goal_state.copy()
 
+        # initialize Miscellaneous variable
+        n = len(init)
+
+        for i in range(0, n):
+            if i not in init or i not in goal:
+                return False
+
         # ---> Step 02: Remove zero from the args <--- #
         init.remove(0)
         goal.remove(0)
 
         # ---> Step 03: Initialize flip counter <---#
         init_flip_count, goal_flip_count = 0, 0
-
-        # initialize Miscellaneous variable
-        n = len(init)
 
         for i in range(0, n):
             temp_i = init[i:]
@@ -167,10 +171,11 @@ class TilePuzzleSolver:
         """
         return node @ unique_seq
 
-    def bruteForceExplorationBFS(self) -> None:
+    def bruteForceExplorationBFS(self) -> bool:
         """
         This Function explores the possible states of the Tile Puzzle using breadth first search Algorithm
-        Returns: None
+        Returns: bool
+            Returns True if goal is found or else False.
 
         """
         while not self.que.empty() and not self.exit_flag:
@@ -178,9 +183,7 @@ class TilePuzzleSolver:
             move = self.findNeighbors(self.current_node)
             self.findChildStates(move, self.current_node)
 
-        if self.exit_flag:
-            print("\nGoal Found!")
-            print("\nNodes Explored: ", self.nodes.__len__())
+        return self.exit_flag
 
     def findNeighbors(self, node: Node) -> set:
         """
@@ -216,7 +219,7 @@ class TilePuzzleSolver:
                     self.exit_flag = True
                 self.que.put(child_node)
 
-    def backTrack(self, uniq_id: int) -> list:
+    def backTrack(self, uniq_id: int = None) -> list:
         """
 
         Args:
@@ -227,6 +230,8 @@ class TilePuzzleSolver:
             Returns a list containing the solution to the puzzle
 
         """
+        if uniq_id is None:
+            uniq_id = self.goal_id
         current_node = self.nodes[uniq_id]
         current_id = current_node.id
         path = [current_node.current_state]
