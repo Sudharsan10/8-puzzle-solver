@@ -9,7 +9,7 @@
 # ---------------------------------------------------------------------------------------------------------------------- #
 import unittest
 import numpy as np
-import Python.TilePuzzleSolver.solver.tile_puzzle_solver as tp
+import solver.tile_puzzle_solver as tp
 
 
 # ---------------------------------------------------------------------------------------------------------------------- #

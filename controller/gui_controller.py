@@ -6,8 +6,8 @@
 # ---------------------------------------------------------------------------------------------------------------------- #
 # Import Section for Importing library
 # ---------------------------------------------------------------------------------------------------------------------- #
-from Python.TilePuzzleSolver.ui.gui import *
-from Python.TilePuzzleSolver.solver.tile_puzzle_solver import *
+from ui.gui import *
+from solver.tile_puzzle_solver import *
 
 
 # ---------------------------------------------------------------------------------------------------------------------- #
@@ -40,7 +40,7 @@ class GUIController:
             self.solver = TilePuzzleSolver(np.array(data.init), np.array(data.goal))
             self.solver.bruteForceExplorationBFS()
             path = self.solver.backTrack(self.solver.goal_id)
-            self.ui.enableSim(path)
+            self.ui.printSolution(path)
         else:
             self.ui.printWindow.setText("The given input is NOT solvable! \n Try different input value")
 

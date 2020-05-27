@@ -6,13 +6,10 @@
 # ---------------------------------------------------------------------------------------------------------------------- #
 # Import Section for Importing library
 # ---------------------------------------------------------------------------------------------------------------------- #
-import sys
-import time
-
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtGui import QIntValidator, QCursor
-
-from Python.TilePuzzleSolver.data.ui_data import *
+from data.ui_data import *
+import sys
 
 
 # ---------------------------------------------------------------------------------------------------------------------- #
@@ -29,8 +26,8 @@ class Ui_MainWindow(object):
                 UI Object
         """
         # ---> Attributes <--- #
-        self.path = []
         self.data = UIData()
+        self.data.solution = []
         self.counter = 0
         self.is_solvable_flag = False
         self.main_window = main_window
@@ -117,23 +114,39 @@ class Ui_MainWindow(object):
 
         self.resetALl()
 
-    def validateInputData(self):
-        init_raw = [self.i0.text(), self.i1.text(), self.i2.text(), self.i3.text(),
-                    self.i4.text(), self.i5.text(), self.i6.text(), self.i7.text(), self.i8.text()]
-        goal_raw = [self.g0.text(), self.g1.text(), self.g2.text(), self.g3.text(),
-                    self.g4.text(), self.g5.text(), self.g6.text(), self.g7.text(), self.g8.text()]
+    def validateInputData(self) -> bool:
+        """
+        Validate the input data -Init_state and goal_state, for int.
+        Returns: bool
+            Returns True if the input data passes validation test, else False.
+
+        """
         self.data.init = []
         self.data.goal = []
+        init_raw = [self.i0.text(), self.i1.text(), self.i2.text(),
+                    self.i3.text(), self.i4.text(), self.i5.text(),
+                    self.i6.text(), self.i7.text(), self.i8.text()]
+        goal_raw = [self.g0.text(), self.g1.text(), self.g2.text(),
+                    self.g3.text(), self.g4.text(), self.g5.text(),
+                    self.g6.text(), self.g7.text(), self.g8.text()]
+
         for x, y in zip(init_raw, goal_raw):
             if self.IntValidator.validate(x, 0)[0] != 2 or self.IntValidator.validate(y, 0)[0] != 2:
                 self.printWindow.setText("Bad Input! Please Enter only numbers from 0-9!")
                 return False
             self.data.init.append(int(x))
             self.data.goal.append(int(y))
+
         return True
 
-    def updateSimOut(self, data: list):
-        print("inside update SIm")
+    def updateSimOut(self, data: list) -> None:
+        """
+        A function to update the solution Simulation Area
+        Args:
+            data: list
+                list of int data
+        Returns: None
+        """
         self.out0.setText(str(data[0]))
         self.out1.setText(str(data[1]))
         self.out2.setText(str(data[2]))
@@ -144,7 +157,11 @@ class Ui_MainWindow(object):
         self.out7.setText(str(data[7]))
         self.out8.setText(str(data[8]))
 
-    def clearSimOut(self):
+    def clearSimOut(self) -> None:
+        """
+        A function to reset the simulation widget and reset to init_State
+        Returns: None
+        """
         self.out0.clear()
         self.out1.clear()
         self.out2.clear()
@@ -156,39 +173,59 @@ class Ui_MainWindow(object):
         self.out8.clear()
         self.counter = 0
         self.timer.stop()
-        if self.path:
-            self.updateSimOut(self.path[0])
+        if self.data.solution:
+            self.updateSimOut(self.data.solution[0])
             if not self.startButton.isVisible():
                 self.nextButton.setVisible(True)
 
     def isSolvable(self) -> None:
+        """
+        Upon triggered by IsSolvable Button click, Checks for valid input data and then checks for solution feasibility.
+        Returns: None
+        """
         if self.validateInputData():
             self.is_solvable_flag = self.controller.IsSolvable(self.data)
-            print(self.is_solvable_flag)
 
-    def enableSim(self, path: list):
-        self.simulationButton.setVisible(True)
-        self.path = path
+    def printSolution(self, solution: list) -> None:
+        """
+        Prints the Solution in the Solution window.
+        Args:
+            solution: list
+                Solution to the puzzle
+        Returns: None
+        """
         out = ""
-        for x in path:
-            out = "\n" + out + ''.join(ch for ch in str(x.reshape(3, 3)) if ch not in {'[', ']'}) + '\n\n'
+        self.simulationButton.setVisible(True)
+        self.data.solution = solution
+        for x in solution:
+            out = "\n" + out + ''.join(ch for ch in str(x.reshape(3, 3)) if ch not in {'[', ']'}) + '\n'
         self.printWindow.setText(out)
 
-    def simulation(self):
-        print("Simulatin button clicked")
+    def simulation(self) -> None:
+        """
+        Upon successful search, this function is called to Enables the simulation controls
+        Returns: None
+        """
         self.pauseButton.setVisible(True)
         self.startButton.setVisible(True)
         self.resetButton.setVisible(True)
         self.toggleManualButton.setVisible(True)
-        self.updateSimOut(self.path[0])
+        self.updateSimOut(self.data.solution[0])
 
-    def findSolution(self):
-        print("Find Solution clicked")
+    def findSolution(self) -> None:
+        """
+        Upon triggered by find Solution button, it checks for input data validations and calls auto solve function.
+        Returns: None
+        """
         if self.validateInputData():
             self.controller.autoSolve(self.data)
 
-    def resetALl(self):
-        self.path = []
+    def resetALl(self) -> None:
+        """
+        Resets the program's input, output and simulation area.
+        Returns: None
+        """
+        self.data.solution = []
         self.i0.clear()
         self.i1.clear()
         self.i2.clear()
@@ -217,46 +254,66 @@ class Ui_MainWindow(object):
         self.toggleManualButton.setVisible(False)
         self.printWindow.setText("Program has been Reset!!")
 
-    def toggleManual(self):
+    def toggleManual(self) -> None:
+        """
+        Toggle the manual control and automated solution sim.
+        Returns: None
+        """
         if self.nextButton.isVisible():
             self.startButton.setVisible(True)
             self.pauseButton.setVisible(True)
             self.nextButton.setVisible(False)
             self.previousButton.setVisible(False)
             self.clearSimOut()
-            self.updateSimOut(self.path[0])
+            self.updateSimOut(self.data.solution[0])
         else:
             self.startButton.setVisible(False)
             self.pauseButton.setVisible(False)
             self.nextButton.setVisible(True)
             self.previousButton.setVisible(True)
-            self.updateSimOut(self.path[0])
+            self.updateSimOut(self.data.solution[0])
 
-    def startSim(self):
+    def startSim(self) -> None:
+        """
+        start the solution simulation
+        Returns: None
+        """
         self.timer.start(1000)  # every 10,000 millisecond
 
-    def pauseSim(self):
+    def pauseSim(self) -> None:
+        """
+        Pauses the simulation until start is pressed again
+        Returns: None
+        """
         self.timer.stop()
 
-    def nextState(self):
+    def nextState(self) -> None:
+        """
+        Updates the next solution state of the solution
+        Returns: None
+        """
         self.counter += 1
-        if self.counter < self.path.__len__():
+        if self.counter < self.data.solution.__len__():
             if not self.startButton.isVisible():
                 self.previousButton.setVisible(True)
-            self.updateSimOut(self.path[self.counter])
-        if self.counter == self.path.__len__() - 1:
+            self.updateSimOut(self.data.solution[self.counter])
+        if self.counter == self.data.solution.__len__() - 1:
             self.nextButton.setVisible(False)
 
-    def previousState(self):
+    def previousState(self) -> None:
+        """
+        Updates to previous solution state of the solution
+        Returns: None
+        """
         self.counter -= 1
         if self.counter >= 0:
             if not self.startButton.isVisible():
                 self.nextButton.setVisible(True)
-            self.updateSimOut(self.path[self.counter])
+            self.updateSimOut(self.data.solution[self.counter])
         if self.counter == 0:
             self.previousButton.setVisible(False)
 
-    def setupUi(self):
+    def setupUi(self) -> None:
         # ---> Main Window Initialization<--- #
         self.main_window.setObjectName("MainWindow")
         self.main_window.resize(829, 744)
@@ -267,6 +324,7 @@ class Ui_MainWindow(object):
         self.main_window.setSizePolicy(sizePolicy)
         self.main_window.setMinimumSize(QtCore.QSize(700, 700))
         self.main_window.setAnimated(True)
+
 
         # ---> Central Widget Initialization<--- #
         self.centralwidget.setStyleSheet("background-color: rgb(245, 245, 245);\n")
@@ -293,6 +351,15 @@ class Ui_MainWindow(object):
         self.container_grid.setSpacing(5)
         self.container_grid.setObjectName("container_grid")
 
+        self.inputWidgets()
+        self.simulationWidget()
+        self.simOutputArea()
+        self.solutionSection()
+        self.programControls()
+        self.menuBarWidget()
+        self.tabOrderFunc()
+
+    def inputWidgets(self) -> None:
         # ---> Initial Widget <--- #
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
@@ -589,6 +656,7 @@ class Ui_MainWindow(object):
         self.gridLayout_5.addWidget(self.goal, 0, 0, 1, 1)
         self.container_grid.addWidget(self.goal_state, 0, 1, 1, 1)
 
+    def simulationWidget(self) -> None:
         # ---> Simulation Widget <--- #
         self.sim.setAutoFillBackground(False)
         self.sim.setStyleSheet("border: none;")
@@ -679,6 +747,7 @@ class Ui_MainWindow(object):
 
         self.simulation_grid.addWidget(self.controls, 1, 0, 1, 2)
 
+    def simOutputArea(self) -> None:
         # ---> Simulation solution output widget <--- #
         self.output.setObjectName("output")
 
@@ -869,6 +938,7 @@ class Ui_MainWindow(object):
 
         self.container_grid.addWidget(self.sim, 1, 0, 2, 2)
 
+    def solutionSection(self) -> None:
         # ---> Solution Section <--- #
         self.solution.setAutoFillBackground(False)
         self.solution.setStyleSheet("border: none;")
@@ -895,6 +965,7 @@ class Ui_MainWindow(object):
 
         self.container_grid.addWidget(self.solution, 1, 2, 2, 1)
 
+    def programControls(self) -> None:
         # ---> Program Control widget <--- #
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
@@ -1000,6 +1071,7 @@ class Ui_MainWindow(object):
         self.gridLayout.addWidget(self.container, 0, 1, 1, 1)
         self.main_window.setCentralWidget(self.centralwidget)
 
+    def menuBarWidget(self) -> None:
         # ---> Menu Bar Widget <--- #
         self.menubar.setGeometry(QtCore.QRect(0, 0, 829, 21))
         self.menubar.setObjectName("menubar")
@@ -1022,6 +1094,7 @@ class Ui_MainWindow(object):
         self.menubar.addAction(self.settings.menuAction())
         self.retranslateUi()
 
+    def tabOrderFunc(self) -> None:
         # ---> Setting Focus and Tab order <--- #
         QtCore.QMetaObject.connectSlotsByName(self.main_window)
         self.main_window.setTabOrder(self.i0, self.i1)
@@ -1076,7 +1149,7 @@ class Ui_MainWindow(object):
         self.previousButton.clicked.connect(self.previousState)
         self.resetButton.clicked.connect(self.clearSimOut)
 
-    def retranslateUi(self):
+    def retranslateUi(self) -> None:
         _translate = QtCore.QCoreApplication.translate
         self.main_window.setWindowTitle(_translate("MainWindow", "SOLVID-19"))
         self.goalLabel.setText(_translate("MainWindow", "Goal State"))
