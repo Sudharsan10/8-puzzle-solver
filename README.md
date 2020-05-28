@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://getbootstrap.com/">
-    <img src=".\img\logo\project_logo1.ico">
+    <i src=".\img\logo\project_logo1.ico">
   </a>
   
 </p>

@@ -11,7 +11,7 @@ from controller.gui_controller import *
 
 def startApp():
     app = GUIController()
-    app.startGUI()
+    app.start_GUI()
 
 
 if __name__ == '__main__':
