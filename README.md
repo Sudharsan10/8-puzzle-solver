@@ -40,6 +40,38 @@ There are two ways to run this app:
     > ```
     > git clone https://github.com/Sudharsan10/TilePuzzelSolver-App.git
     > ```
+    > 
+## Status
+[![Slack](https://bootstrap-slack.herokuapp.com/badge.svg)](https://bootstrap-slack.herokuapp.com/)
+[![Build Status](https://github.com/twbs/bootstrap/workflows/Tests/badge.svg?branch=master)](https://github.com/twbs/bootstrap/actions?query=workflow%3ATests+branch%3Amaster)
+[![npm version](https://img.shields.io/npm/v/bootstrap.svg)](https://www.npmjs.com/package/bootstrap)
+
+## What's included
+Within the download you'll find the following directories and files, logically grouping the modules in its own packages. 
+You'll see something like this:
+```text
+TilePuzzleSolver/
+├── controller/
+|   ├── __init__.py
+|   └── gui_controller.py   
+├── data/
+|   ├── __init__.py
+|   └── ui_data.py 
+├── docs/ ...
+├── img/ ...
+├── solver/
+|   ├── __init__.py
+|   ├── test_tile_puzzle_solver.py 
+|   └── tile_puzzle_solver.py
+├── ui/
+|   ├── __init__.py
+|   ├── css_styles.py  
+|   ├── gui.py
+|   └── TilePuzzleSolverGUI.ui
+├── Readme.md
+└── setup.py
+```
+
 
 ## Pre-requisites
 This app depends on ```numpy``` and ```PyQt5``` libraries. We can setup this up using pip installer or conda virtual environment tool.
@@ -66,19 +98,22 @@ This app depends on ```numpy``` and ```PyQt5``` libraries. We can setup this up 
 
 ## Run instructions
 To run the app, first finish the pre-requisites mentioned, then
-1. Clone the repo: 
+1. Clone the repo in terminal using following command: 
     > ```
     > git clone https://github.com/Sudharsan10/TilePuzzelSolver-App.git
     > ```
+    or download github repo as ```.zip``` and extract it in the desired location.
+    
 2. In terminal navigate to the root folder abd locate the ```setup.py``` file and run the following command:
     > ```
     > python setup.py
     > ```
 
+If every requirement is fulfilled a window should open as follow,
 
-## Status
+![logo](.\img\logo\project_logo.png)
 
-## What's included
+
 
 ## Bugs and feature requests
 
