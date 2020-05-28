@@ -1,18 +1,20 @@
-# ---------------------------------------------------------------------------------------------------------------------- #
+"""
+# ------------------------------------------------------------------------------------------------ #
 # Project   :-> 8 Tile Puzzle solver
 # Authors   :-> Sudharsan
 # E-mail    :-> sudharsansci@gmail.com
-
-# ---------------------------------------------------------------------------------------------------------------------- #
+# ------------------------------------------------------------------------------------------------ #
+"""
+# ------------------------------------------------------------------------------------------------ #
 # Import Section for Importing library
-# ---------------------------------------------------------------------------------------------------------------------- #
-import numpy as np
+# ------------------------------------------------------------------------------------------------ #
 from queue import Queue
+import numpy as np
 
 
-# ---------------------------------------------------------------------------------------------------------------------- #
+# ------------------------------------------------------------------------------------------------ #
 # Class for the solver Algorithm
-# ---------------------------------------------------------------------------------------------------------------------- #
+# ------------------------------------------------------------------------------------------------ #
 class Node:
     """
     Custom made data structure for storing Node info using class Node.
@@ -48,7 +50,8 @@ class TilePuzzleSolver:
         -> goal_state               :-> Goal State of the given puzzle
         -> goal_id                  :-> Unique number based on puzzle's Goal state
         -> neighbours               :-> neighbor location map for each tile location in puzzle
-        -> que                      :-> A deque object to implement FIFO logic for Breadth first search Algorithm
+        -> que                      :-> A deque object to implement FIFO logic for Breadth first
+                                        search Algorithm
         -> nodes                    :-> A dictionary with node object as value and node's id as key
         -> current_node             :-> generate a node object based on initial state of puzzle
         -> exit_flag                :-> True if goal is found, False by default
@@ -63,10 +66,12 @@ class TilePuzzleSolver:
         -> __init__()               :-> Initializes the attributes
         -> findNeighbors            :-> finds the possible moves based on puzzle's current state
         -> findChildStates          :-> finds the new states based on the moves possible
-        -> backTrack                :-> based on the node id back tracks back to the start node and returns the solution
-        -> bruteForceExplorationBFS :-> A function to implement brute force search using breadth first search algorithm
-        -> autoSolve                :-> Calls all the necessary function upon obj creation and solves and returns the
-                                        solution
+        -> backTrack                :-> based on the node id back tracks back to the start node and
+                                        returns the solution
+        -> bruteForceExplorationBFS :-> A function to implement brute force search using breadth
+                                        first search algorithm
+        -> autoSolve                :-> Calls all the necessary function upon obj creation and
+                                        solves and returns the solution
 
     """
 
@@ -116,7 +121,8 @@ class TilePuzzleSolver:
         """
         isSolvable(initial_state, goal_state) -> bool
 
-        It takes the initial state and goal state unique number and checks for solution feasibility.
+        It takes the initial state and goal state unique number and checks for solution
+        feasibility.
 
         Args:
             initial_state: int
@@ -157,11 +163,13 @@ class TilePuzzleSolver:
         return init_flip_count % 2 == 0 and goal_flip_count % 2 == 0
 
     @staticmethod
-    def generateUniqueNumber(node: np.array, unique_seq: np.array = np.array([100000000, 10000000, 1000000, 100000, 10000, 1000, 100, 10, 1])) -> int:
+    def generateUniqueNumber(node: np.array, unique_seq: np.array = np.array(
+        [100000000, 10000000, 1000000, 100000, 10000, 1000, 100, 10, 1])) -> int:
         """
         Args:
             unique_seq: np.array
-                np.array([100000000, 10000000, 1000000, 100000, 10000, 1000, 100, 10, 1]) the multiplier
+                np.array([100000000, 10000000, 1000000, 100000, 10000, 1000, 100, 10, 1])
+                the multiplier
             node: np.array
                 Its a 1D array
 
@@ -173,7 +181,8 @@ class TilePuzzleSolver:
 
     def bruteForceExplorationBFS(self) -> bool:
         """
-        This Function explores the possible states of the Tile Puzzle using breadth first search Algorithm
+        This Function explores the possible states of the Tile Puzzle using breadth first
+        search Algorithm
         Returns: bool
             Returns True if goal is found or else False.
 
@@ -244,7 +253,8 @@ class TilePuzzleSolver:
 
     def autoSolve(self) -> list:
         """
-        In one function checks for solution feasibility, runs the bruteForceExplorationBFS() and backTrack() and returns the solution
+        In one function checks for solution feasibility, runs the
+        bruteForceExplorationBFS() and backTrack() and returns the solution
         Returns: list
             Solution to the given puzzle
         """
@@ -253,6 +263,3 @@ class TilePuzzleSolver:
             return self.backTrack(self.goal_id)
         else:
             return ["Not Solvable!"]
-
-
-

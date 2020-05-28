@@ -7,6 +7,7 @@
 # Import Section for Importing library
 # ---------------------------------------------------------------------------------------------------------------------- #
 
+css_background = "#6e6e6e"
 css_no_border = "border: none"
 css_centralWidget = "background-color: rgb(245, 245, 245);\n"
 css_inputText = "background: #ffffff; \n border: 2px solid red;"
