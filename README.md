@@ -42,13 +42,20 @@ There are two ways to run this app:
     > ```
     > 
 ## Status
-[![Slack](https://bootstrap-slack.herokuapp.com/badge.svg)](https://bootstrap-slack.herokuapp.com/)
-[![Build Status](https://github.com/twbs/bootstrap/workflows/Tests/badge.svg?branch=master)](https://github.com/twbs/bootstrap/actions?query=workflow%3ATests+branch%3Amaster)
-[![npm version](https://img.shields.io/npm/v/bootstrap.svg)](https://www.npmjs.com/package/bootstrap)
+[![made-with-python](https://img.shields.io/badge/Python%20Version-3.8.3-brightgreen)](https://www.python.org/)
+[![pip-version](https://img.shields.io/badge/pip%20Version-20.0.2-brightgreen)](https://www.python.org/)
+[![pyqt-version](https://img.shields.io/badge/PyQt5%20Version-5.14.2-brightgreen)](https://www.python.org/)
+[![numpy-version](https://img.shields.io/badge/numpy%20Version-1.18.1-brightgreen)](https://www.python.org/)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-e01563.svg)](https://github.com/Sudharsan10/TilePuzzelSolver-App/graphs/commit-activity)
+[![Documentation Status](https://img.shields.io/badge/Documentation-yes-e01563)](https://github.com/Sudharsan10/TilePuzzelSolver-App/tree/master/img/logo)
+[![made-with-Markdown](https://img.shields.io/badge/Made%20with-Markdown-0366d6.svg)](http://commonmark.org)
+[![contributors](https://img.shields.io/badge/Contributors-01-0366d6)](http://commonmark.org)
+
 
 ## What's included
 Within the download you'll find the following directories and files, logically grouping the modules in its own packages. 
 You'll see something like this:
+
 ```text
 TilePuzzleSolver/
 ├── controller/
@@ -76,7 +83,7 @@ TilePuzzleSolver/
 ## Pre-requisites
 This app depends on ```numpy``` and ```PyQt5``` libraries. We can setup this up using pip installer or conda virtual environment tool.
 
-- Setting up using pip installer
+- setting up using pip installer
     > ```
     > pip install numpy
     >```
@@ -111,7 +118,7 @@ To run the app, first finish the pre-requisites mentioned, then
 
 If every requirement is fulfilled a window should open as follow,
 
-![logo](.\img\logo\project_logo.png)
+![logo](/img/logo/project_logo.png)
 
 
 
