@@ -20,6 +20,12 @@
 
 8 Puzzle solver is a basic app to perform brute force search coupled with breadth first search algorithm to find solution 
 to a given 8 tile puzzle configuration.
+## Work in progress
+- [ ] Replace GUI with better UI design and styles.
+- [ ] Add documentation for Solver and project
+- [ ] Feat: add feature Save solution
+- [ ] Feat: add feature load custom user puzzle from a .txt file
+- [ ] add How to use app instructions
 
 ## Table of contents
 - [Quick start](#quick-start)
@@ -49,6 +55,9 @@ There are two ways to run this app:
 [![numpy-version](https://img.shields.io/badge/numpy%20Version-1.18.1-brightgreen)](https://pypi.org/project/numpy/)
 [![made-with-Markdown](https://img.shields.io/badge/Made%20with-Markdown-0366d6.svg)](http://commonmark.org)
 [![contributors](https://img.shields.io/badge/Contributors-01-0366d6)](https://github.com/Sudharsan10/TilePuzzelSolver-App/graphs/contributors)
+[![Logo](https://img.shields.io/badge/Logo-Adobe%20Photoshop-20639B.svg)](https://github.com/Sudharsan10/TilePuzzelSolver-App/graphs/commit-activity)
+[![Flow-charts](https://img.shields.io/badge/Flowcharts-MS%20Power%20Point-20639B.svg)](https://github.com/Sudharsan10/TilePuzzelSolver-App/graphs/commit-activity)
+[![UI](https://img.shields.io/badge/GUI-PyQt5%20&%20CSS-FEBB13.svg)](https://github.com/Sudharsan10/TilePuzzelSolver-App/graphs/commit-activity)
 
 
 ## What's included
