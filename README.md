@@ -40,16 +40,16 @@ There are two ways to run this app:
     > ```
     > git clone https://github.com/Sudharsan10/TilePuzzelSolver-App.git
     > ```
-    > 
+    
 ## Status
-[![made-with-python](https://img.shields.io/badge/Python%20Version-3.8.3-brightgreen)](https://www.python.org/)
-[![pip-version](https://img.shields.io/badge/pip%20Version-20.0.2-brightgreen)](https://www.python.org/)
-[![pyqt-version](https://img.shields.io/badge/PyQt5%20Version-5.14.2-brightgreen)](https://www.python.org/)
-[![numpy-version](https://img.shields.io/badge/numpy%20Version-1.18.1-brightgreen)](https://www.python.org/)
-[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-e01563.svg)](https://github.com/Sudharsan10/TilePuzzelSolver-App/graphs/commit-activity)
 [![Documentation Status](https://img.shields.io/badge/Documentation-yes-e01563)](https://github.com/Sudharsan10/TilePuzzelSolver-App/tree/master/img/logo)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-e01563.svg)](https://github.com/Sudharsan10/TilePuzzelSolver-App/graphs/commit-activity)
+[![made-with-python](https://img.shields.io/badge/Python%20Version-3.8.3-brightgreen)](https://www.python.org/)
+[![pip-version](https://img.shields.io/badge/pip%20Version-20.0.2-brightgreen)](https://pip.pypa.io/en/stable/installing/)
+[![pyqt-version](https://img.shields.io/badge/PyQt5%20Version-5.14.2-brightgreen)](pip install PyQt5)
+[![numpy-version](https://img.shields.io/badge/numpy%20Version-1.18.1-brightgreen)](pip install numpy)
 [![made-with-Markdown](https://img.shields.io/badge/Made%20with-Markdown-0366d6.svg)](http://commonmark.org)
-[![contributors](https://img.shields.io/badge/Contributors-01-0366d6)](http://commonmark.org)
+[![contributors](https://img.shields.io/badge/Contributors-01-0366d6)](https://github.com/Sudharsan10/TilePuzzelSolver-App/graphs/contributors)
 
 
 ## What's included
