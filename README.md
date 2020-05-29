@@ -2,7 +2,7 @@
 
 <p align="center">
   <a href="https://github.com/Sudharsan10/TilePuzzelSolver-App">
-    <img src=".\img\project_social_card.png" alt="Social-header">
+    <img src=".\img\project_social_card02.png" alt="Social-header">
   </a>  
 </p>
 
