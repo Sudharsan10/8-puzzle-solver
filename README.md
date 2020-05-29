@@ -127,8 +127,8 @@ To run the app, first finish the pre-requisites mentioned, then
 If every requirement is fulfilled a window should open as follow,
 
 <p align="center;">
-    <a href="">
-    <img alt="Social-header" src=".\img\ui\start_screen.png">
+    <a href="https://github.com/Sudharsan10/TilePuzzelSolver-App">
+    <img src=".\img\ui\start_screen.png" alt="start-screen">
     </a>
 </p>
 
