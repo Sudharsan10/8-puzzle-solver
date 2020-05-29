@@ -1151,7 +1151,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self) -> None:
         _translate = QtCore.QCoreApplication.translate
-        self.main_window.setWindowTitle(_translate("MainWindow", "SOLVID-19"))
+        self.main_window.setWindowTitle(_translate("MainWindow", "8 Puzzle Solver"))
         self.goalLabel.setText(_translate("MainWindow", "Goal State"))
         self.toggleManualButton.setText(_translate("MainWindow", "Switch between states Manually"))
         self.nextButton.setText(_translate("MainWindow", "Next"))
