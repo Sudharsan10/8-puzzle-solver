@@ -15,9 +15,9 @@
     <a href="https://getbootstrap.com/docs/4.5/"><strong>Explore 8 Tile Puzzle solver app docs »</strong></a>
     <br>
     <br>
-    <a href="https://github.com/twbs/bootstrap/issues/new?template=bug.md">Report bug</a>
+    <a href="https://github.com/Sudharsan10/TilePuzzelSolver-App/issues/new">Report bug</a>
     ·
-    <a href="https://github.com/twbs/bootstrap/issues/new?template=feature.md&labels=feature">Request feature</a>    
+    <a href="https://github.com/Sudharsan10/TilePuzzelSolver-App/issues/new">Request feature</a>    
 </p>
 
 
@@ -48,8 +48,8 @@ There are two ways to run this app:
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-e01563.svg)](https://github.com/Sudharsan10/TilePuzzelSolver-App/graphs/commit-activity)
 [![made-with-python](https://img.shields.io/badge/Python%20Version-3.8.3-brightgreen)](https://www.python.org/)
 [![pip-version](https://img.shields.io/badge/pip%20Version-20.0.2-brightgreen)](https://pip.pypa.io/en/stable/installing/)
-[![pyqt-version](https://img.shields.io/badge/PyQt5%20Version-5.14.2-brightgreen)](pip install PyQt5)
-[![numpy-version](https://img.shields.io/badge/numpy%20Version-1.18.1-brightgreen)](pip install numpy)
+[![pyqt-version](https://img.shields.io/badge/PyQt5%20Version-5.14.2-brightgreen)](https://pypi.org/project/PyQt5/)
+[![numpy-version](https://img.shields.io/badge/numpy%20Version-1.18.1-brightgreen)](https://pypi.org/project/numpy/)
 [![made-with-Markdown](https://img.shields.io/badge/Made%20with-Markdown-0366d6.svg)](http://commonmark.org)
 [![contributors](https://img.shields.io/badge/Contributors-01-0366d6)](https://github.com/Sudharsan10/TilePuzzelSolver-App/graphs/contributors)
 
