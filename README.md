@@ -128,7 +128,7 @@ If every requirement is fulfilled a window should open as follow,
 
 <p align="center;">
     <a id='thanks'>
-    <img align="center;" alt="Social-header" src="./img/ui/welcome_screen.png" width="90%"/>
+    <img align="center;" alt="Social-header" src="img/ui/start_screen.png" width="90%"/>
     </a>
 </p>
 
