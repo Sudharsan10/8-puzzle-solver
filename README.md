@@ -79,11 +79,11 @@ TilePuzzleSolver/
 |   ├── test_tile_puzzle_solver.py 
 |   └── tile_puzzle_solver.py
 ├── ui/
-|   ├── __init__.py
-|   ├── css_styles.py  
+|   ├── __init__.py  
 |   ├── gui.py
 |   └── TilePuzzleSolverGUI.ui
 ├── Readme.md
+├── styles.css
 └── setup.py
 ```
 
