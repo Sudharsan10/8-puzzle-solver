@@ -29,6 +29,7 @@ class GUIController:
         # ---> GUI creation <--- #
         self.app = QtWidgets.QApplication(sys.argv)
         self.main_window = QtWidgets.QMainWindow()
+        self.app.setStyleSheet(open('styles.css').read())
         self.main_window.setWindowIcon(QIcon('img\logo4.png'))
         self.ui = Ui_MainWindow(self, self.main_window)
         self.ui.setupUi()
@@ -76,7 +77,6 @@ class GUIController:
         Args:
             data: UIData
                 data from ui to solver
-
         Returns:
 
         """

@@ -1,0 +1,89 @@
+QMainWindow {
+    color: #dfebec;
+    background-color: #2d2c2c;
+}
+QLineEdit,QTextBrowser {
+    background: #dfebec;
+    border: 2px solid #de9836;
+    border-radius: 5px;
+    text-align: center;
+}
+QLineEdit:hover:focus {
+    border-color: #b10b2d;
+}
+#printWindow {
+    border: 2px solid #de9836;
+    border-radius: 7px;
+    text-align: center !important;
+    child-align: middle;
+    padding: 1em 0em 1em 1.5em;
+    margin: 1em 0 1.5em 0 ;
+    font-size: 20px;
+}
+QLabel {
+    color: #d5e7e7;
+    font-size: 15px;
+    font-weight: bold;
+    font-family: "Comic Sans MS";
+}
+QPushButton {
+    background-color: cornflowerblue;
+    font-size: 13px;
+    font-weight: bold;
+    font-family: "Comic Sans MS";
+    color: #d5e7e7;
+    border: 2px solid #cbb007;
+    border-radius: 5px;
+    text-align: center;
+}
+QPushButton:hover:pressed {
+    background-color: #b10b2d;
+    color: #d5e7e7;
+    border: 2px solid #db4e0d;
+    border-radius: 5px;
+    text-align: center;
+}
+QPushButton:hover:!pressed {
+    background-color: cornflowerblue;
+    color: #d5e7e7;
+    border: 2px solid #db4e0d;
+    border-radius: 5px;
+    text-align: center;
+}
+QScrollBar{
+    width: 10px;
+    border-radius: 5px;
+    background-color: rgb(170, 165, 165);
+}
+
+#out0,#out1,#out2, #out3,#out4,#out5,#out6,#out7,#out8 {
+    font-size: 20px;
+}
+
+#sim_output_text_grid {
+    margin-top: 0;
+    margin-bottom: 1em;
+}
+QMenu {
+    background-color: #a8a8a8; /* sets background of the menu */
+    border: 1px solid #4b4a4a;
+    color: #646e6f;
+}
+QMenuBar {
+    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+    stop:0 lightgray, stop:1 darkgray);
+}
+QMenuBar::item {
+    spacing: 3px; /* spacing between menu bar items */
+    padding: 1px 4px;
+    background: transparent;
+    border-radius: 4px;
+}
+QMenuBar::item:selected { /* when selected using mouse or keyboard */
+    background: #a8a8a8;
+}
+
+QMenuBar::item:pressed {
+    background: #888888;
+}
+

@@ -10,7 +10,6 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import QFile
 from PyQt5.QtGui import QIntValidator, QCursor, QIcon
 from data.ui_data import *
-from ui.css_styles import *
 import sys
 
 
@@ -33,6 +32,7 @@ class Ui_MainWindow(object):
         self.counter = 0
         self.is_solvable_flag = False
         self.main_window = main_window
+
         self.centralwidget = QtWidgets.QWidget(self.main_window)
         self.gridLayout = QtWidgets.QGridLayout(self.centralwidget)
         self.container = QtWidgets.QWidget(self.centralwidget)
@@ -200,7 +200,9 @@ class Ui_MainWindow(object):
         self.simulationButton.setVisible(True)
         self.data.solution = solution
         for x in solution:
-            out = out + ''.join(ch for ch in str(x.reshape(3, 3)) if ch not in {'[', ']'}) + '\n\n'
+            for y in x.reshape(3, 3):
+                out = out + ''.join(ch for ch in str(y) if ch not in {'[', ',', ']'}) + '\n'
+            out = out + '\n\n'
         self.printWindow.setText(out)
 
     def simulation(self) -> None:
@@ -331,9 +333,7 @@ class Ui_MainWindow(object):
         self.main_window.setMinimumSize(QtCore.QSize(700, 700))
         self.main_window.setAnimated(True)
 
-
         # ---> Central Widget Initialization<--- #
-        self.centralwidget.setStyleSheet(css_centralWidget)
         self.centralwidget.setObjectName("centralwidget")
 
         # ---> Central Widget's Grid layout Initialization<--- #
@@ -349,7 +349,6 @@ class Ui_MainWindow(object):
 
         self.container.setSizePolicy(sizePolicy)
         self.container.setMaximumSize(QtCore.QSize(700, 700))
-        self.container.setStyleSheet("")
         self.container.setObjectName("container")
 
         # ---> Container's Grid layout Initialization<--- #
@@ -376,7 +375,6 @@ class Ui_MainWindow(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.initial_state.sizePolicy().hasHeightForWidth())
         self.initial_state.setSizePolicy(sizePolicy)
-        self.initial_state.setStyleSheet(css_no_border)
         self.initial_state.setObjectName("initial_state")
 
         # ---> Initial Widget layout<--- #
@@ -392,7 +390,7 @@ class Ui_MainWindow(object):
         self.initLabel.setMinimumSize(QtCore.QSize(0, 20))
         self.initLabel.setMaximumSize(QtCore.QSize(16777215, 20))
         font = QtGui.QFont()
-        font.setFamily(css_fontStyle)
+        # font.setFamily("")
         font.setPointSize(10)
         self.initLabel.setFont(font)
         self.initLabel.setTextFormat(QtCore.Qt.AutoText)
@@ -403,10 +401,10 @@ class Ui_MainWindow(object):
 
         # ---> Init Input 00 <--- #
         font = QtGui.QFont()
-        font.setFamily(css_fontStyle)
+        font.setFamily("")
         font.setPointSize(22)
         self.i0.setFont(font)
-        self.i0.setStyleSheet(css_inputText)
+        self.i0.setStyleSheet("")
         self.i0.setMaxLength(1)
         self.i0.setAlignment(QtCore.Qt.AlignCenter)
         self.i0.setObjectName("lineEdit")
@@ -414,11 +412,11 @@ class Ui_MainWindow(object):
 
         # ---> Init Input 01 <--- #
         font = QtGui.QFont()
-        font.setFamily(css_fontStyle)
+        font.setFamily("")
         font.setPointSize(22)
         self.i1.setFont(font)
         self.i1.setAutoFillBackground(False)
-        self.i1.setStyleSheet(css_inputText)
+        self.i1.setStyleSheet("")
         self.i1.setMaxLength(1)
         self.i1.setAlignment(QtCore.Qt.AlignCenter)
         self.i1.setClearButtonEnabled(False)
@@ -427,11 +425,11 @@ class Ui_MainWindow(object):
 
         # ---> Init Input 02 <--- #
         font = QtGui.QFont()
-        font.setFamily(css_fontStyle)
+        font.setFamily("")
         font.setPointSize(22)
         self.i2.setFont(font)
         self.i2.setAutoFillBackground(False)
-        self.i2.setStyleSheet(css_inputText)
+        self.i2.setStyleSheet("")
         self.i2.setMaxLength(1)
         self.i2.setAlignment(QtCore.Qt.AlignCenter)
         self.i2.setClearButtonEnabled(False)
@@ -440,11 +438,11 @@ class Ui_MainWindow(object):
 
         # ---> Init Input 03 <--- #
         font = QtGui.QFont()
-        font.setFamily(css_fontStyle)
+        font.setFamily("")
         font.setPointSize(22)
         self.i3.setFont(font)
         self.i3.setAutoFillBackground(False)
-        self.i3.setStyleSheet(css_inputText)
+        self.i3.setStyleSheet("")
         self.i3.setMaxLength(1)
         self.i3.setAlignment(QtCore.Qt.AlignCenter)
         self.i3.setClearButtonEnabled(False)
@@ -453,11 +451,11 @@ class Ui_MainWindow(object):
 
         # ---> Init Input 04 <--- #
         font = QtGui.QFont()
-        font.setFamily(css_fontStyle)
+        font.setFamily("")
         font.setPointSize(22)
         self.i4.setFont(font)
         self.i4.setAutoFillBackground(False)
-        self.i4.setStyleSheet(css_inputText)
+        self.i4.setStyleSheet("")
         self.i4.setMaxLength(1)
         self.i4.setAlignment(QtCore.Qt.AlignCenter)
         self.i4.setClearButtonEnabled(False)
@@ -466,11 +464,11 @@ class Ui_MainWindow(object):
 
         # ---> Init Input 05 <--- #
         font = QtGui.QFont()
-        font.setFamily(css_fontStyle)
+        font.setFamily("")
         font.setPointSize(22)
         self.i5.setFont(font)
         self.i5.setAutoFillBackground(False)
-        self.i5.setStyleSheet(css_inputText)
+        self.i5.setStyleSheet("")
         self.i5.setMaxLength(1)
         self.i5.setAlignment(QtCore.Qt.AlignCenter)
         self.i5.setClearButtonEnabled(False)
@@ -479,11 +477,11 @@ class Ui_MainWindow(object):
 
         # ---> Init Input 06 <--- #
         font = QtGui.QFont()
-        font.setFamily(css_fontStyle)
+        font.setFamily("")
         font.setPointSize(22)
         self.i6.setFont(font)
         self.i6.setAutoFillBackground(False)
-        self.i6.setStyleSheet(css_inputText)
+        self.i6.setStyleSheet("")
         self.i6.setMaxLength(1)
         self.i6.setAlignment(QtCore.Qt.AlignCenter)
         self.i6.setClearButtonEnabled(False)
@@ -492,11 +490,11 @@ class Ui_MainWindow(object):
 
         # ---> Init Input 07 <--- #
         font = QtGui.QFont()
-        font.setFamily(css_fontStyle)
+        font.setFamily("")
         font.setPointSize(22)
         self.i7.setFont(font)
         self.i7.setAutoFillBackground(False)
-        self.i7.setStyleSheet(css_inputText)
+        self.i7.setStyleSheet("")
         self.i7.setMaxLength(1)
         self.i7.setAlignment(QtCore.Qt.AlignCenter)
         self.i7.setClearButtonEnabled(False)
@@ -505,11 +503,11 @@ class Ui_MainWindow(object):
 
         # ---> Init Input 08 <--- #
         font = QtGui.QFont()
-        font.setFamily(css_fontStyle)
+        font.setFamily("")
         font.setPointSize(22)
         self.i8.setFont(font)
         self.i8.setAutoFillBackground(False)
-        self.i8.setStyleSheet(css_inputText)
+        self.i8.setStyleSheet("")
         self.i8.setMaxLength(1)
         self.i8.setAlignment(QtCore.Qt.AlignCenter)
         self.i8.setClearButtonEnabled(False)
@@ -525,7 +523,7 @@ class Ui_MainWindow(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.goal_state.sizePolicy().hasHeightForWidth())
         self.goal_state.setSizePolicy(sizePolicy)
-        self.goal_state.setStyleSheet(css_no_border)
+        self.goal_state.setStyleSheet("")
         self.goal_state.setObjectName("goal_state")
 
         # ---> Goal's grid <--- #
@@ -540,10 +538,10 @@ class Ui_MainWindow(object):
 
         # ---> Goal Input 00 <--- #
         font = QtGui.QFont()
-        font.setFamily(css_fontStyle)
+        font.setFamily("")
         font.setPointSize(22)
         self.g0.setFont(font)
-        self.g0.setStyleSheet(css_inputText)
+        self.g0.setStyleSheet("")
         self.g0.setMaxLength(1)
         self.g0.setAlignment(QtCore.Qt.AlignCenter)
         self.g0.setClearButtonEnabled(False)
@@ -552,10 +550,10 @@ class Ui_MainWindow(object):
 
         # ---> Goal Input 01 <--- #
         font = QtGui.QFont()
-        font.setFamily(css_fontStyle)
+        font.setFamily("")
         font.setPointSize(22)
         self.g1.setFont(font)
-        self.g1.setStyleSheet(css_inputText)
+        self.g1.setStyleSheet("")
         self.g1.setMaxLength(1)
         self.g1.setAlignment(QtCore.Qt.AlignCenter)
         self.g1.setClearButtonEnabled(False)
@@ -564,10 +562,10 @@ class Ui_MainWindow(object):
 
         # ---> Goal Input 02 <--- #
         font = QtGui.QFont()
-        font.setFamily(css_fontStyle)
+        font.setFamily("")
         font.setPointSize(22)
         self.g2.setFont(font)
-        self.g2.setStyleSheet(css_inputText)
+        self.g2.setStyleSheet("")
         self.g2.setMaxLength(1)
         self.g2.setAlignment(QtCore.Qt.AlignCenter)
         self.g2.setClearButtonEnabled(False)
@@ -576,10 +574,10 @@ class Ui_MainWindow(object):
 
         # ---> Goal Input 03 <--- #
         font = QtGui.QFont()
-        font.setFamily(css_fontStyle)
+        font.setFamily("")
         font.setPointSize(22)
         self.g3.setFont(font)
-        self.g3.setStyleSheet(css_inputText)
+        self.g3.setStyleSheet("")
         self.g3.setMaxLength(1)
         self.g3.setAlignment(QtCore.Qt.AlignCenter)
         self.g3.setClearButtonEnabled(False)
@@ -588,10 +586,10 @@ class Ui_MainWindow(object):
 
         # ---> Goal Input 04 <--- #
         font = QtGui.QFont()
-        font.setFamily(css_fontStyle)
+        font.setFamily("")
         font.setPointSize(22)
         self.g4.setFont(font)
-        self.g4.setStyleSheet(css_inputText)
+        self.g4.setStyleSheet("")
         self.g4.setMaxLength(1)
         self.g4.setAlignment(QtCore.Qt.AlignCenter)
         self.g4.setClearButtonEnabled(False)
@@ -600,10 +598,10 @@ class Ui_MainWindow(object):
 
         # ---> Goal Input 05 <--- #
         font = QtGui.QFont()
-        font.setFamily(css_fontStyle)
+        font.setFamily("")
         font.setPointSize(22)
         self.g5.setFont(font)
-        self.g5.setStyleSheet(css_inputText)
+        self.g5.setStyleSheet("")
         self.g5.setMaxLength(1)
         self.g5.setAlignment(QtCore.Qt.AlignCenter)
         self.g5.setClearButtonEnabled(False)
@@ -612,10 +610,10 @@ class Ui_MainWindow(object):
 
         # ---> Goal Input 06 <--- #
         font = QtGui.QFont()
-        font.setFamily(css_fontStyle)
+        font.setFamily("")
         font.setPointSize(22)
         self.g6.setFont(font)
-        self.g6.setStyleSheet(css_inputText)
+        self.g6.setStyleSheet("")
         self.g6.setMaxLength(1)
         self.g6.setAlignment(QtCore.Qt.AlignCenter)
         self.g6.setClearButtonEnabled(False)
@@ -624,10 +622,10 @@ class Ui_MainWindow(object):
 
         # ---> Goal Input 07 <--- #
         font = QtGui.QFont()
-        font.setFamily(css_fontStyle)
+        font.setFamily("")
         font.setPointSize(22)
         self.g7.setFont(font)
-        self.g7.setStyleSheet(css_inputText)
+        self.g7.setStyleSheet("")
         self.g7.setMaxLength(1)
         self.g7.setAlignment(QtCore.Qt.AlignCenter)
         self.g7.setClearButtonEnabled(False)
@@ -636,10 +634,10 @@ class Ui_MainWindow(object):
 
         # ---> Goal Input 08 <--- #
         font = QtGui.QFont()
-        font.setFamily(css_fontStyle)
+        font.setFamily("")
         font.setPointSize(22)
         self.g8.setFont(font)
-        self.g8.setStyleSheet(css_inputText)
+        self.g8.setStyleSheet("")
         self.g8.setMaxLength(1)
         self.g8.setAlignment(QtCore.Qt.AlignCenter)
         self.g8.setClearButtonEnabled(False)
@@ -655,7 +653,7 @@ class Ui_MainWindow(object):
         self.goalLabel.setMinimumSize(QtCore.QSize(40, 20))
         self.goalLabel.setMaximumSize(QtCore.QSize(16777215, 20))
         font = QtGui.QFont()
-        font.setFamily(css_fontStyle)
+        font.setFamily("")
         font.setPointSize(10)
         self.goalLabel.setFont(font)
         self.goalLabel.setScaledContents(False)
@@ -669,7 +667,6 @@ class Ui_MainWindow(object):
     def simulationWidget(self) -> None:
         # ---> Simulation Widget <--- #
         self.sim.setAutoFillBackground(False)
-        self.sim.setStyleSheet("border: none;")
         self.sim.setObjectName("sim")
 
         # ---> Simulation Widget's Grid <--- #
@@ -686,10 +683,10 @@ class Ui_MainWindow(object):
         self.toggleManualButton.setMinimumSize(QtCore.QSize(0, 30))
         self.toggleManualButton.setBaseSize(QtCore.QSize(0, 0))
         font = QtGui.QFont()
-        font.setFamily(css_fontStyle)
+        font.setFamily("")
         font.setPointSize(10)
         self.toggleManualButton.setFont(font)
-        self.toggleManualButton.setStyleSheet(css_sim_ctrl_buttons)
+        self.toggleManualButton.setStyleSheet("")
         self.toggleManualButton.setAutoRepeat(False)
         self.toggleManualButton.setObjectName("toggleManualControl")
         self.sim_controls_grid.addWidget(self.toggleManualButton, 1, 1, 1, 3)
@@ -697,10 +694,10 @@ class Ui_MainWindow(object):
         # ---> Sim control's next state button <--- #
         self.nextButton.setMinimumSize(QtCore.QSize(30, 30))
         font = QtGui.QFont()
-        font.setFamily(css_fontStyle)
+        font.setFamily("")
         font.setPointSize(10)
         self.nextButton.setFont(font)
-        self.nextButton.setStyleSheet(css_sim_ctrl_buttons)
+        self.nextButton.setStyleSheet("")
         self.nextButton.setAutoRepeat(False)
         self.nextButton.setObjectName("nextButton")
         self.sim_controls_grid.addWidget(self.nextButton, 0, 4, 1, 1)
@@ -708,10 +705,10 @@ class Ui_MainWindow(object):
         # ---> Sim control's previous state button <--- #
         self.previousButton.setMinimumSize(QtCore.QSize(30, 30))
         font = QtGui.QFont()
-        font.setFamily(css_fontStyle)
+        font.setFamily("")
         font.setPointSize(10)
         self.previousButton.setFont(font)
-        self.previousButton.setStyleSheet(css_sim_ctrl_buttons)
+        self.previousButton.setStyleSheet("")
         self.previousButton.setAutoRepeat(False)
         self.previousButton.setObjectName("previousButton")
         self.sim_controls_grid.addWidget(self.previousButton, 0, 0, 1, 1)
@@ -719,10 +716,10 @@ class Ui_MainWindow(object):
         # ---> Sim control's pause button <--- #
         self.pauseButton.setMinimumSize(QtCore.QSize(30, 30))
         font = QtGui.QFont()
-        font.setFamily(css_fontStyle)
+        font.setFamily("")
         font.setPointSize(10)
         self.pauseButton.setFont(font)
-        self.pauseButton.setStyleSheet(css_sim_ctrl_buttons)
+        self.pauseButton.setStyleSheet("")
         self.pauseButton.setAutoRepeat(False)
         self.pauseButton.setObjectName("pauseButton")
         self.sim_controls_grid.addWidget(self.pauseButton, 0, 1, 1, 1)
@@ -730,10 +727,10 @@ class Ui_MainWindow(object):
         # ---> Sim control's reset button <--- #
         self.resetButton.setMinimumSize(QtCore.QSize(30, 30))
         font = QtGui.QFont()
-        font.setFamily(css_fontStyle)
+        font.setFamily("")
         font.setPointSize(10)
         self.resetButton.setFont(font)
-        self.resetButton.setStyleSheet(css_sim_ctrl_buttons)
+        self.resetButton.setStyleSheet("")
         self.resetButton.setAutoRepeat(False)
         self.resetButton.setObjectName("resetButton")
         self.sim_controls_grid.addWidget(self.resetButton, 0, 3, 1, 1)
@@ -741,10 +738,10 @@ class Ui_MainWindow(object):
         # ---> Sim control's start button <--- #
         self.startButton.setMinimumSize(QtCore.QSize(30, 30))
         font = QtGui.QFont()
-        font.setFamily(css_fontStyle)
+        font.setFamily("")
         font.setPointSize(10)
         self.startButton.setFont(font)
-        self.startButton.setStyleSheet(css_sim_ctrl_buttons)
+        self.startButton.setStyleSheet("")
         self.startButton.setAutoRepeat(False)
         self.startButton.setObjectName("startButton")
         self.sim_controls_grid.addWidget(self.startButton, 0, 2, 1, 1)
@@ -769,11 +766,9 @@ class Ui_MainWindow(object):
         self.out0.setMinimumSize(QtCore.QSize(50, 50))
         self.out0.setMaximumSize(QtCore.QSize(100, 100))
         font = QtGui.QFont()
-        font.setFamily(css_fontStyle)
         font.setPointSize(20)
         self.out0.setFont(font)
         self.out0.setLayoutDirection(QtCore.Qt.LeftToRight)
-        self.out0.setStyleSheet(css_sim_output_text)
         self.out0.setAlignment(QtCore.Qt.AlignCenter)
         self.out0.setObjectName("out0")
         self.sim_output_text_grid.addWidget(self.out0, 2, 2, 1, 1)
@@ -787,11 +782,9 @@ class Ui_MainWindow(object):
         self.out1.setMinimumSize(QtCore.QSize(50, 50))
         self.out1.setMaximumSize(QtCore.QSize(100, 100))
         font = QtGui.QFont()
-        font.setFamily(css_fontStyle)
         font.setPointSize(20)
         self.out1.setFont(font)
         self.out1.setLayoutDirection(QtCore.Qt.LeftToRight)
-        self.out1.setStyleSheet(css_sim_output_text)
         self.out1.setAlignment(QtCore.Qt.AlignCenter)
         self.out1.setObjectName("out1")
         self.sim_output_text_grid.addWidget(self.out1, 2, 3, 1, 1)
@@ -805,11 +798,9 @@ class Ui_MainWindow(object):
         self.out2.setMinimumSize(QtCore.QSize(50, 50))
         self.out2.setMaximumSize(QtCore.QSize(100, 100))
         font = QtGui.QFont()
-        font.setFamily(css_fontStyle)
         font.setPointSize(20)
         self.out2.setFont(font)
         self.out2.setLayoutDirection(QtCore.Qt.LeftToRight)
-        self.out2.setStyleSheet(css_sim_output_text)
         self.out2.setAlignment(QtCore.Qt.AlignCenter)
         self.out2.setObjectName("out2")
         self.sim_output_text_grid.addWidget(self.out2, 2, 4, 1, 1)
@@ -823,11 +814,9 @@ class Ui_MainWindow(object):
         self.out3.setMinimumSize(QtCore.QSize(50, 50))
         self.out3.setMaximumSize(QtCore.QSize(100, 100))
         font = QtGui.QFont()
-        font.setFamily(css_fontStyle)
         font.setPointSize(20)
         self.out3.setFont(font)
         self.out3.setLayoutDirection(QtCore.Qt.LeftToRight)
-        self.out3.setStyleSheet(css_sim_output_text)
         self.out3.setAlignment(QtCore.Qt.AlignCenter)
         self.out3.setObjectName("out3")
         self.sim_output_text_grid.addWidget(self.out3, 3, 2, 1, 1)
@@ -841,11 +830,9 @@ class Ui_MainWindow(object):
         self.out4.setMinimumSize(QtCore.QSize(50, 50))
         self.out4.setMaximumSize(QtCore.QSize(100, 100))
         font = QtGui.QFont()
-        font.setFamily(css_fontStyle)
         font.setPointSize(20)
         self.out4.setFont(font)
         self.out4.setLayoutDirection(QtCore.Qt.LeftToRight)
-        self.out4.setStyleSheet(css_sim_output_text)
         self.out4.setAlignment(QtCore.Qt.AlignCenter)
         self.out4.setObjectName("out4")
         self.sim_output_text_grid.addWidget(self.out4, 3, 3, 1, 1)
@@ -859,11 +846,9 @@ class Ui_MainWindow(object):
         self.out5.setMinimumSize(QtCore.QSize(50, 50))
         self.out5.setMaximumSize(QtCore.QSize(100, 100))
         font = QtGui.QFont()
-        font.setFamily(css_fontStyle)
         font.setPointSize(20)
         self.out5.setFont(font)
         self.out5.setLayoutDirection(QtCore.Qt.LeftToRight)
-        self.out5.setStyleSheet(css_sim_output_text)
         self.out5.setAlignment(QtCore.Qt.AlignCenter)
         self.out5.setObjectName("out5")
         self.sim_output_text_grid.addWidget(self.out5, 3, 4, 1, 1)
@@ -877,11 +862,9 @@ class Ui_MainWindow(object):
         self.out6.setMinimumSize(QtCore.QSize(50, 50))
         self.out6.setMaximumSize(QtCore.QSize(100, 100))
         font = QtGui.QFont()
-        font.setFamily(css_fontStyle)
         font.setPointSize(20)
         self.out6.setFont(font)
         self.out6.setLayoutDirection(QtCore.Qt.LeftToRight)
-        self.out6.setStyleSheet(css_sim_output_text)
         self.out6.setAlignment(QtCore.Qt.AlignCenter)
         self.out6.setObjectName("out6")
         self.sim_output_text_grid.addWidget(self.out6, 4, 2, 1, 1)
@@ -895,11 +878,9 @@ class Ui_MainWindow(object):
         self.out7.setMinimumSize(QtCore.QSize(50, 50))
         self.out7.setMaximumSize(QtCore.QSize(100, 100))
         font = QtGui.QFont()
-        font.setFamily(css_fontStyle)
         font.setPointSize(20)
         self.out7.setFont(font)
         self.out7.setLayoutDirection(QtCore.Qt.LeftToRight)
-        self.out7.setStyleSheet(css_sim_output_text)
         self.out7.setAlignment(QtCore.Qt.AlignCenter)
         self.out7.setObjectName("out7")
         self.sim_output_text_grid.addWidget(self.out7, 4, 3, 1, 1)
@@ -913,11 +894,9 @@ class Ui_MainWindow(object):
         self.out8.setMinimumSize(QtCore.QSize(50, 50))
         self.out8.setMaximumSize(QtCore.QSize(100, 100))
         font = QtGui.QFont()
-        font.setFamily(css_fontStyle)
         font.setPointSize(20)
         self.out8.setFont(font)
         self.out8.setLayoutDirection(QtCore.Qt.LeftToRight)
-        self.out8.setStyleSheet(css_sim_output_text)
         self.out8.setAlignment(QtCore.Qt.AlignCenter)
         self.out8.setObjectName("out8")
         self.sim_output_text_grid.addWidget(self.out8, 4, 4, 1, 1)
@@ -928,14 +907,12 @@ class Ui_MainWindow(object):
         self.sim_controls_label.setMinimumSize(QtCore.QSize(0, 20))
         self.sim_controls_label.setMaximumSize(QtCore.QSize(16777215, 20))
         font = QtGui.QFont()
-        font.setFamily(css_fontStyle)
         font.setPointSize(10)
         font.setBold(False)
         font.setItalic(False)
         font.setUnderline(False)
         font.setWeight(50)
         self.sim_controls_label.setFont(font)
-        self.sim_controls_label.setStyleSheet(css_sim_ctrl_label)
         self.sim_controls_label.setAlignment(QtCore.Qt.AlignCenter)
         self.sim_controls_label.setObjectName("label")
         self.simulation_grid.addWidget(self.sim_controls_label, 0, 0, 1, 2, QtCore.Qt.AlignHCenter)
@@ -945,7 +922,6 @@ class Ui_MainWindow(object):
     def solutionSection(self) -> None:
         # ---> Solution Section <--- #
         self.solution.setAutoFillBackground(False)
-        self.solution.setStyleSheet("border: none;")
         self.solution.setObjectName("solution")
 
         # ---> Solution's Layout <--- #
@@ -955,7 +931,7 @@ class Ui_MainWindow(object):
         self.output_window_label.setMinimumSize(QtCore.QSize(0, 20))
         self.output_window_label.setMaximumSize(QtCore.QSize(16777215, 20))
         font = QtGui.QFont()
-        font.setFamily(css_fontStyle)
+        font.setFamily("")
         font.setPointSize(10)
         self.output_window_label.setFont(font)
         self.output_window_label.setAlignment(QtCore.Qt.AlignCenter)
@@ -963,7 +939,6 @@ class Ui_MainWindow(object):
         self.verticalLayout.addWidget(self.output_window_label)
 
         # ---> Output's print Window <--- #
-        self.printWindow.setStyleSheet(css_printWindow)
         self.printWindow.setObjectName("printWindow")
         self.verticalLayout.addWidget(self.printWindow)
 
@@ -976,7 +951,6 @@ class Ui_MainWindow(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.control.sizePolicy().hasHeightForWidth())
         self.control.setSizePolicy(sizePolicy)
-        self.control.setStyleSheet("")
         self.control.setObjectName("control")
 
         # ---> Program Control widget's action button grid <--- #
@@ -988,7 +962,6 @@ class Ui_MainWindow(object):
         self.options.setMinimumSize(QtCore.QSize(0, 20))
         self.options.setMaximumSize(QtCore.QSize(16777215, 20))
         font = QtGui.QFont()
-        font.setFamily(css_fontStyle)
         font.setPointSize(10)
         self.options.setFont(font)
         self.options.setAlignment(QtCore.Qt.AlignCenter)
@@ -1005,11 +978,11 @@ class Ui_MainWindow(object):
         self.findSolutionButton.setMaximumSize(QtCore.QSize(200, 100))
         self.findSolutionButton.setSizeIncrement(QtCore.QSize(0, 0))
         font = QtGui.QFont()
-        font.setFamily(css_fontStyle)
+        font.setFamily("")
         font.setPointSize(10)
         self.findSolutionButton.setFont(font)
         self.findSolutionButton.setAutoFillBackground(False)
-        self.findSolutionButton.setStyleSheet(css_buttons)
+        self.findSolutionButton.setStyleSheet("")
         self.findSolutionButton.setAutoDefault(True)
         self.findSolutionButton.setObjectName("findSolutionButton")
         self.action_button_layout.addWidget(self.findSolutionButton, 1, 0, 1, 1)
@@ -1023,10 +996,10 @@ class Ui_MainWindow(object):
         self.isSolvableButton.setMinimumSize(QtCore.QSize(100, 50))
         self.isSolvableButton.setMaximumSize(QtCore.QSize(200, 100))
         font = QtGui.QFont()
-        font.setFamily(css_fontStyle)
+        font.setFamily("")
         font.setPointSize(10)
         self.isSolvableButton.setFont(font)
-        self.isSolvableButton.setStyleSheet(css_buttons)
+        self.isSolvableButton.setStyleSheet("")
         self.isSolvableButton.setShortcut("")
         self.isSolvableButton.setObjectName("isSolvableButton")
         self.action_button_layout.addWidget(self.isSolvableButton, 1, 1, 1, 1)
@@ -1040,10 +1013,10 @@ class Ui_MainWindow(object):
         self.appResetButton.setMinimumSize(QtCore.QSize(100, 50))
         self.appResetButton.setMaximumSize(QtCore.QSize(200, 100))
         font = QtGui.QFont()
-        font.setFamily(css_fontStyle)
+        font.setFamily("")
         font.setPointSize(10)
         self.appResetButton.setFont(font)
-        self.appResetButton.setStyleSheet(css_buttons)
+        self.appResetButton.setStyleSheet("")
         self.appResetButton.setAutoDefault(True)
         self.appResetButton.setObjectName("appResetButton")
         self.action_button_layout.addWidget(self.appResetButton, 2, 1, 1, 1)
@@ -1057,12 +1030,12 @@ class Ui_MainWindow(object):
         self.simulationButton.setMinimumSize(QtCore.QSize(100, 50))
         self.simulationButton.setMaximumSize(QtCore.QSize(200, 100))
         font = QtGui.QFont()
-        font.setFamily(css_fontStyle)
+        font.setFamily("")
         font.setPointSize(10)
         font.setBold(False)
         font.setWeight(50)
         self.simulationButton.setFont(font)
-        self.simulationButton.setStyleSheet(css_buttons)
+        self.simulationButton.setStyleSheet("")
         self.simulationButton.setAutoDefault(True)
         self.simulationButton.setObjectName("simulationButton")
         self.action_button_layout.addWidget(self.simulationButton, 2, 0, 1, 1)
@@ -1153,7 +1126,7 @@ class Ui_MainWindow(object):
         _translate = QtCore.QCoreApplication.translate
         self.main_window.setWindowTitle(_translate("MainWindow", "8 Puzzle Solver"))
         self.goalLabel.setText(_translate("MainWindow", "Goal State"))
-        self.toggleManualButton.setText(_translate("MainWindow", "Switch between states Manually"))
+        self.toggleManualButton.setText(_translate("MainWindow", "Toggle Auto/Manual"))
         self.nextButton.setText(_translate("MainWindow", "Next"))
         self.previousButton.setText(_translate("MainWindow", "Previous"))
         self.pauseButton.setText(_translate("MainWindow", "Pause"))
@@ -1170,12 +1143,7 @@ class Ui_MainWindow(object):
         self.out8.setText(_translate("MainWindow", ""))
         self.sim_controls_label.setText(_translate("MainWindow", "Simulation Controls"))
         self.output_window_label.setText(_translate("MainWindow", "Output Window!"))
-        self.printWindow.setHtml(_translate("MainWindow",
-                                            "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-                                            "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-                                            "p, li { white-space: pre-wrap; }\n"
-                                            "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
-                                            "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">    </p></body></html>"))
+
         self.options.setText(_translate("MainWindow", "Options"))
         self.isSolvableButton.setText(_translate("MainWindow", "Is Solvable?"))
         self.appResetButton.setText(_translate("MainWindow", "Reset"))
