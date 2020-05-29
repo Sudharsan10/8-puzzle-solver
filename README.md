@@ -127,8 +127,8 @@ To run the app, first finish the pre-requisites mentioned, then
 If every requirement is fulfilled a window should open as follow,
 
 <p align="center;">
-    <a id='thanks'>
-    <img align="center;" alt="Social-header" src="img/ui/start_screen.png" width="90%"/>
+    <a href="">
+    <img alt="Social-header" src=".\img\ui\start_screen.png">
     </a>
 </p>
 
