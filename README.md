@@ -6,12 +6,10 @@
   </a>  
 </p>
 
-<h1 align="center"> SOLVID-19 </h1>
-
 <p align="center">
   An 8 Tile Puzzle solver app.  
   <br>
-    <a href="https://getbootstrap.com/docs/4.5/"><strong>Explore 8 Tile Puzzle solver app docs »</strong></a>
+    <a href=""><strong>Explore 8 Tile Puzzle solver app docs »</strong></a>
     <br>
     <br>
     <a href="https://github.com/Sudharsan10/TilePuzzelSolver-App/issues/new">Report bug</a>
@@ -20,8 +18,8 @@
 </p>
 
 
-SOLVID-19 is a basic app to perform brute force search coupled with breadth first search algorithm to find solution 
-to 8 tile puzzle configuration.
+8 Puzzle solver is a basic app to perform brute force search coupled with breadth first search algorithm to find solution 
+to a given 8 tile puzzle configuration.
 
 ## Table of contents
 - [Quick start](#quick-start)
