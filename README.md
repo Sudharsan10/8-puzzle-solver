@@ -1,11 +1,5 @@
 <meta name="google-site-verification" content="anaQPdlDO5QzFwQQ6mpEFvfJXLj2Ue8-EFylgHd7JlU" />
-```HTML
-<p align="center">
-  <a href="https://github.com/Sudharsan10/TilePuzzelSolver-App">
-    <img src=".\img\logo\logo4.png" width="100px" alt="Logo">
-  </a>  
-</p>
-```
+
 
 <h1 align="center"> SOLVID-19 </h1>
 
