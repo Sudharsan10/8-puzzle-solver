@@ -127,12 +127,10 @@ To run the app, first finish the pre-requisites mentioned, then
 If every requirement is fulfilled a window should open as follow,
 
 <div style="text-align: center;">
-    <img alt="Social-header" src="img/ui/welcome_Screen.png">
+    <img alt="Social-header" src="./img/ui/welcome_Screen.png">
 </div>
 
-<div style="text-align: center;">
 ![logo](img/ui/welcome_Screen.png)
-</div>
 
 
 
