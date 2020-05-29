@@ -7,7 +7,8 @@
 # Import Section for Importing library
 # ---------------------------------------------------------------------------------------------------------------------- #
 from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtGui import QIntValidator, QCursor
+from PyQt5.QtCore import QFile
+from PyQt5.QtGui import QIntValidator, QCursor, QIcon
 from data.ui_data import *
 from ui.css_styles import *
 import sys

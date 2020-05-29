@@ -8,6 +8,8 @@
 # ---------------------------------------------------------------------------------------------------------------------- #
 # Import Section for Importing library
 # ---------------------------------------------------------------------------------------------------------------------- #
+from PyQt5.QtGui import QIcon
+
 from ui.gui import *
 from solver.tile_puzzle_solver import *
 
@@ -19,6 +21,7 @@ class GUIController:
     """
     GUIController class handles the data from solver to UI and vice versa
     """
+
     def __init__(self):
         # Flags for layout and toggle hide or view methods
         self.solver = None
@@ -26,6 +29,7 @@ class GUIController:
         # ---> GUI creation <--- #
         self.app = QtWidgets.QApplication(sys.argv)
         self.main_window = QtWidgets.QMainWindow()
+        self.main_window.setWindowIcon(QIcon('img\logo4.png'))
         self.ui = Ui_MainWindow(self, self.main_window)
         self.ui.setupUi()
 
