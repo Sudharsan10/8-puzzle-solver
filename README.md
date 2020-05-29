@@ -1,5 +1,10 @@
 <meta name="google-site-verification" content="anaQPdlDO5QzFwQQ6mpEFvfJXLj2Ue8-EFylgHd7JlU" />
 
+<p align="center">
+  <a href="https://github.com/Sudharsan10/TilePuzzelSolver-App">
+    <img src=".\img\project_social_card.png" width="100px" alt="Social-header">
+  </a>  
+</p>
 
 <h1 align="center"> SOLVID-19 </h1>
 
@@ -114,7 +119,7 @@ To run the app, first finish the pre-requisites mentioned, then
 
 If every requirement is fulfilled a window should open as follow,
 
-![logo](/img/logo/project_logo.png)
+![logo](/img/project_logo.png)
 
 
 
