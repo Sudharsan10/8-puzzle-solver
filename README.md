@@ -1,9 +1,11 @@
-
+<meta name="google-site-verification" content="anaQPdlDO5QzFwQQ6mpEFvfJXLj2Ue8-EFylgHd7JlU" />
+```HTML
 <p align="center">
   <a href="https://github.com/Sudharsan10/TilePuzzelSolver-App">
     <img src=".\img\logo\logo4.png" width="100px" alt="Logo">
   </a>  
 </p>
+```
 
 <h1 align="center"> SOLVID-19 </h1>
 
@@ -123,11 +125,17 @@ If every requirement is fulfilled a window should open as follow,
 
 
 ## Bugs and feature requests
+Have a bug or a feature request? Search for existing and closed issues, if your problem or idea is not addressed yet, 
+[please open a new issue](https://github.com/Sudharsan10/TilePuzzelSolver-App/issues/new).
 
 ## Documentation
-
+Working on documentation stay tuned!
 
 
 ## Creators
+**@Sudharsan** : <https://github.com/Sudharsan10>
 
-## Thanks
+<p align='center'>
+    <a id='thanks'></a>
+    Thank you for visiting our Repo!
+</p>
