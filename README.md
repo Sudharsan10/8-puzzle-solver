@@ -42,7 +42,7 @@ to a given 8 tile puzzle configuration.
 There are two ways to run this app: 
 - [Download the latest Docker container.]() and run from the app in that container
 - Clone the repo: 
-    > ```
+    > ```shell script
     > git clone https://github.com/Sudharsan10/TilePuzzelSolver-App.git
     > ```
     
@@ -92,21 +92,21 @@ TilePuzzleSolver/
 This app depends on ```numpy``` and ```PyQt5``` libraries. We can setup this up using pip installer or conda virtual environment tool.
 
 - setting up using pip installer
-    > ```
+    > ```shell script
     > pip install numpy
     >```
     
-    > ```
+    > ```shell script
     > pip install PyQt5 
     Note: If you have both python2 and python3 installed replace ```pip``` with ```pip3``` when using python3. In case you need to install
     ```pip``` follow this [link](#https://pip.pypa.io/en/stable/installing/) to get ```pip``` setup before running the above commands.
     
 - setting up using conda environment for ```python3```     
-    > ```
+    > ```shell script
     > conda install -c anaconda numpy
     >```
     
-    > ```
+    > ```shell script
     > conda install -c anaconda pyqt
     > ```
     Note: To install and setup anaconda environment follow this [link](#https://docs.anaconda.com/anaconda/install/) first and visit this section again after successfully setting up the conda environment.
@@ -114,13 +114,13 @@ This app depends on ```numpy``` and ```PyQt5``` libraries. We can setup this up 
 ## Run instructions
 To run the app, first finish the pre-requisites mentioned, then
 1. Clone the repo in terminal using following command: 
-    > ```
+    > ```shell script
     > git clone https://github.com/Sudharsan10/TilePuzzelSolver-App.git
     > ```
     or download github repo as ```.zip``` and extract it in the desired location.
     
 2. In terminal navigate to the root folder abd locate the ```setup.py``` file and run the following command:
-    > ```
+    > ```shell script
     > python setup.py
     > ```
 
@@ -128,7 +128,7 @@ If every requirement is fulfilled a window should open as follow,
 
 <p align="center;">
     <a href="https://github.com/Sudharsan10/TilePuzzelSolver-App">
-    <img src=".\img\ui\start_screen.png" alt="start-screen">
+    <img src=".\img\ui\start_screen.png" width="100%" alt="start-screen">
     </a>
 </p>
 
@@ -140,7 +140,72 @@ Have a bug or a feature request? Search for existing and closed issues, if your 
 [please open a new issue](https://github.com/Sudharsan10/TilePuzzelSolver-App/issues/new).
 
 ## Documentation
-Working on documentation stay tuned!
+### Contents:
+1. [How to use](#howtouse)
+2. [Architecture](#architecture)
+3. [Solver.py](#solver_py)
+4. [Integration](#integration)
+    
+### 1 How to use <a id ='howtouse'></a>
+Navigate to the project folder containing setup.py and run it. If using command line to run it, you can follow the command given below,
+```shell script
+python  setup.py
+```
+Enter the initial state of the puzzle and goal state of the puzzle as shown in the fig below.
+
+Now you have three actions to perform in the form of three different button in the options section in the right side of the app.
+They are,
+1. [Find solution](#find-solution)
+2. [Is solvable?](#is-solvable)
+3. [Reset](#reset)
+
+##### 1.2.1 Is solvable? <a id ='is-solvable'></a>
+If you wish only to check for the solution feasibility for given state then you cna use this button just to check the solution feasibility.
+<img src=".\img\project_social_card01.png" width="100%" />
+
+##### 1.2.2 Find solution <a id ='find-solution'></a>
+This button triggers the autoSolve() function, which in checks for the solution feasibility if solution is feasible then 
+it calls the method solve() from the TilePuzzleSolver class, upon completion of solve() method, backtrack() method is called.
+Which returns the solution to the given puzzle states as a list of numpy array. This can be seen well in the flowchart below.
+
+##### 1.2.3 Reset <a id ='reset'></a>
+This button resets all the fields in the GUI by triggering the ClearAll() method.
+
+If the Find Solution action is performed and upon success, a new button simulation will be visible in the options section 
+and simulation section also becomes visible with four more action buttons and a simulation output area.
+
+**Auto/Manual toggle Button:** Toggles visibility between start, stop button with manual navigation buttons - next, previous.
+
+**Start/Pause buttons:** Starts and stops the simulation sates
+
+**Next/Previous buttons:** use it to manually switch to the next/previous state in solution
+
+**Reset button:** it reset the simulation output and toggles back to start/pause button.
+
+<p align="center">
+    <img src=".\img\htu01.png" width="100%" alt="how-to-use-01">
+    .
+    <img src=".\img\htu02.png" width="100%" alt="how-to-use-02">
+    .
+    <img src=".\img\htu03.png" width="100%" alt="how-to-use-03">
+    .
+    <img src=".\img\htu04.png" width="100%" alt="how-to-use-04">
+    .
+    <img src=".\img\htu05.png" width="100%" alt="how-to-use-05">
+  </a>  
+</p>
+
+### 2 Architecture<a id='architecture'></a>
+<img src=".\img\architecture.png" width="100%" />
+
+### 3 solver.py
+<img src=".\img\solver.png" width="100%" />
+
+### 3 Node obj Data Structure
+<img src=".\img\node.png" width="100%" />
+
+### 4 Integration
+
 
 
 ## Creators
