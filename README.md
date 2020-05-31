@@ -160,8 +160,7 @@ They are,
 3. [Reset](#reset)
 
 ##### 1.2.1 Is solvable? <a id ='is-solvable'></a>
-If you wish only to check for the solution feasibility for given state then you cna use this button just to check the solution feasibility.
-<img src=".\img\project_social_card01.png" width="100%" />
+If you wish only to check for the solution feasibility for given state then you can use this button just to check the solution feasibility.
 
 ##### 1.2.2 Find solution <a id ='find-solution'></a>
 This button triggers the autoSolve() function, which in checks for the solution feasibility if solution is feasible then 
