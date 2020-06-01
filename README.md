@@ -21,11 +21,11 @@
 8 Puzzle solver is a basic app to perform brute force search coupled with breadth first search algorithm to find solution 
 to a given 8 tile puzzle configuration.
 ## Work in progress
-- [ ] Replace GUI with better UI design and styles.
-- [ ] Add documentation for Solver and project
+- [X] Replace GUI with better UI design and styles.
+- [X] Add documentation for Solver and project
 - [ ] Feat: add feature Save solution
 - [ ] Feat: add feature load custom user puzzle from a .txt file
-- [ ] add How to use app instructions
+- [X] add How to use app instructions
 
 ## Table of contents
 - [Quick start](#quick-start)
@@ -33,14 +33,14 @@ to a given 8 tile puzzle configuration.
 - [Run instructions](#run-instructions)
 - [Status](#status)
 - [What's included](#whats-included)
-- [Bugs and Feature requests](#bugs-and-feature-requests)
 - [Documentation](#documentation)
+- [Bugs and Feature requests](#bugs-and-feature-requests)
 - [Creators](#creators)
 - [Thanks](#thanks)
 
 ## Quick start
 There are two ways to run this app: 
-- [Download the latest Docker container.]() and run from the app in that container
+- [Download the latest Docker container.]() and run from the app in that container ( NOte: No Docker container at the moment)
 - Clone the repo: 
     > ```shell script
     > git clone https://github.com/Sudharsan10/TilePuzzelSolver-App.git
@@ -133,18 +133,12 @@ If every requirement is fulfilled a window should open as follow,
 </p>
 
 
-
-
-## Bugs and feature requests
-Have a bug or a feature request? Search for existing and closed issues, if your problem or idea is not addressed yet, 
-[please open a new issue](https://github.com/Sudharsan10/TilePuzzelSolver-App/issues/new).
-
 ## Documentation
 ### Contents:
 1. [How to use](#howtouse)
 2. [Architecture](#architecture)
 3. [Solver.py](#solver_py)
-4. [Integration](#integration)
+4. [Node obj Data structure](#node)
     
 ### 1 How to use <a id ='howtouse'></a>
 Navigate to the project folder containing setup.py and run it. If using command line to run it, you can follow the command given below,
@@ -197,15 +191,16 @@ and simulation section also becomes visible with four more action buttons and a 
 ### 2 Architecture<a id='architecture'></a>
 <img src=".\img\architecture.png" width="100%" />
 
-### 3 solver.py
+### 3 solver.py<a id='sovler'></a>
 <img src=".\img\solver.png" width="100%" />
 
-### 3 Node obj Data Structure
+### 4 Node obj Data Structure<a id='node'></a>
 <img src=".\img\node.png" width="100%" />
 
-### 4 Integration
 
-
+## Bugs and feature requests
+Have a bug or a feature request? Search for existing and closed issues, if your problem or idea is not addressed yet, 
+[please open a new issue](https://github.com/Sudharsan10/TilePuzzelSolver-App/issues/new).
 
 ## Creators
 **@Sudharsan** : <https://github.com/Sudharsan10>
