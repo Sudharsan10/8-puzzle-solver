@@ -203,7 +203,7 @@ Have a bug or a feature request? Search for existing and closed issues, if your 
 [please open a new issue](https://github.com/Sudharsan10/TilePuzzelSolver-App/issues/new).
 
 ## Creators
-**@Sudharsan** : <https://www.iamsudharsan.com>
+**@Sudharsan** : [www.iamsudharsan.com](https://www.iamsudharsan.com)
 
 <p align='center'>
     <a id='thanks'></a>
