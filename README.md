@@ -98,6 +98,8 @@ This app depends on ```numpy``` and ```PyQt5``` libraries. We can setup this up 
     
     > ```shell script
     > pip install PyQt5 
+    > ```
+    
     Note: If you have both python2 and python3 installed replace ```pip``` with ```pip3``` when using python3. In case you need to install
     ```pip``` follow this [link](#https://pip.pypa.io/en/stable/installing/) to get ```pip``` setup before running the above commands.
     
