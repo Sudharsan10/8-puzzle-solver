@@ -120,6 +120,7 @@ To run the app, first finish the pre-requisites mentioned, then
     > ```
     > git clone https://github.com/Sudharsan10/TilePuzzelSolver-App.git
     > ```
+    
     or download github repo as ```.zip``` and extract it in the desired location.
     
 2. In terminal navigate to the root folder abd locate the ```setup.py``` file and run the following command:
@@ -148,6 +149,7 @@ Navigate to the project folder containing setup.py and run it. If using command 
   >```
   >python  setup.py
   >```
+  
 Enter the initial state of the puzzle and goal state of the puzzle as shown in the fig below.
 
 Now you have three actions to perform in the form of three different button in the options section in the right side of the app.
