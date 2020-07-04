@@ -42,7 +42,7 @@ to a given 8 tile puzzle configuration.
 There are two ways to run this app: 
 - [Download the latest Docker container.]() and run from the app in that container ( NOte: No Docker container at the moment)
 - Clone the repo: 
-    > ```shell script
+    > ```
     > git clone https://github.com/Sudharsan10/TilePuzzelSolver-App.git
     > ```
     
@@ -92,11 +92,11 @@ TilePuzzleSolver/
 This app depends on ```numpy``` and ```PyQt5``` libraries. We can setup this up using pip installer or conda virtual environment tool.
 
 - setting up using pip installer
-    > ```shell script
+    > ```
     > pip install numpy
     >```
     
-    > ```shell script
+    > ```
     > pip install PyQt5 
     > ```
     
@@ -104,11 +104,11 @@ This app depends on ```numpy``` and ```PyQt5``` libraries. We can setup this up 
     ```pip``` follow this [link](#https://pip.pypa.io/en/stable/installing/) to get ```pip``` setup before running the above commands.
     
 - setting up using conda environment for ```python3```     
-    > ```shell script
+    > ```
     > conda install -c anaconda numpy
     >```
     
-    > ```shell script
+    > ```
     > conda install -c anaconda pyqt
     > ```
     
@@ -117,13 +117,13 @@ This app depends on ```numpy``` and ```PyQt5``` libraries. We can setup this up 
 ## Run instructions
 To run the app, first finish the pre-requisites mentioned, then
 1. Clone the repo in terminal using following command: 
-    > ```shell script
+    > ```
     > git clone https://github.com/Sudharsan10/TilePuzzelSolver-App.git
     > ```
     or download github repo as ```.zip``` and extract it in the desired location.
     
 2. In terminal navigate to the root folder abd locate the ```setup.py``` file and run the following command:
-    > ```shell script
+    > ```
     > python setup.py
     > ```
 
@@ -145,9 +145,9 @@ If every requirement is fulfilled a window should open as follow,
     
 ### 1 How to use <a id ='howtouse'></a>
 Navigate to the project folder containing setup.py and run it. If using command line to run it, you can follow the command given below,
-```shell script
-python  setup.py
-```
+  >```
+  >python  setup.py
+  >```
 Enter the initial state of the puzzle and goal state of the puzzle as shown in the fig below.
 
 Now you have three actions to perform in the form of three different button in the options section in the right side of the app.
