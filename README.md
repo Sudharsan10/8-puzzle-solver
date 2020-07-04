@@ -111,6 +111,7 @@ This app depends on ```numpy``` and ```PyQt5``` libraries. We can setup this up 
     > ```shell script
     > conda install -c anaconda pyqt
     > ```
+    
     Note: To install and setup anaconda environment follow this [link](#https://docs.anaconda.com/anaconda/install/) first and visit this section again after successfully setting up the conda environment.
 
 ## Run instructions
